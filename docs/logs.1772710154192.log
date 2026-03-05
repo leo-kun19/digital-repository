@@ -1,0 +1,1001 @@
+2026-03-05T10:39:22.021086181Z [inf]    .   ____          _            __ _ _
+2026-03-05T10:39:22.021090471Z [inf]   /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+2026-03-05T10:39:22.021095110Z [inf]  ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+2026-03-05T10:39:22.501310678Z [inf]  2026-03-05T10:39:22.176Z  INFO 1 --- [ThesisRepo] [           main] c.e.t.config.PostgresPreflightCheck      : Skipping Postgres preflight check (cloud/Railway deployment detected)
+2026-03-05T10:39:22.501317858Z [inf]  2026-03-05T10:39:22.221Z  INFO 1 --- [ThesisRepo] [           main] c.e.thesisrepo.ThesisRepoApplication     : Starting ThesisRepoApplication v0.0.1-SNAPSHOT using Java 17.0.18 with PID 1 (/app/app.jar started by root in /app)
+2026-03-05T10:39:22.501320318Z [inf]  2026-03-05T10:39:22.222Z  INFO 1 --- [ThesisRepo] [           main] c.e.thesisrepo.ThesisRepoApplication     : The following 1 profile is active: "aad"
+2026-03-05T10:39:24.133052013Z [inf]  2026-03-05T10:39:24.125Z  INFO 1 --- [ThesisRepo] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-03-05T10:39:24.563926077Z [inf]  2026-03-05T10:39:24.429Z  INFO 1 --- [ThesisRepo] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 276 ms. Found 18 JPA repository interfaces.
+2026-03-05T10:39:27.522955263Z [inf]  2026-03-05T10:39:27.517Z  INFO 1 --- [ThesisRepo] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2026-03-05T10:39:27.560835428Z [inf]  2026-03-05T10:39:27.558Z  INFO 1 --- [ThesisRepo] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-03-05T10:39:27.560842438Z [inf]  2026-03-05T10:39:27.558Z  INFO 1 --- [ThesisRepo] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.46]
+2026-03-05T10:39:27.855431712Z [inf]  2026-03-05T10:39:27.852Z  INFO 1 --- [ThesisRepo] [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-03-05T10:39:27.855434772Z [inf]  2026-03-05T10:39:27.853Z  INFO 1 --- [ThesisRepo] [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 5495 ms
+2026-03-05T10:39:29.750733052Z [inf]  2026-03-05T10:39:29.748Z  INFO 1 --- [ThesisRepo] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-03-05T10:39:30.868764592Z [inf]  2026-03-05T10:39:30.866Z  WARN 1 --- [ThesisRepo] [           main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Failed to initialize dependency 'flywayInitializer' of LoadTimeWeaverAware bean 'entityManagerFactory': Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Unable to obtain connection from database: Connection to 127.0.0.1:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+2026-03-05T10:39:30.868769422Z [inf]  --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2026-03-05T10:39:30.868773282Z [inf]  SQL State  : 08001
+2026-03-05T10:39:30.868777102Z [inf]  Error Code : 0
+2026-03-05T10:39:30.868785282Z [inf]  Message    : Connection to 127.0.0.1:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+2026-03-05T10:39:30.868789052Z [inf]  
+2026-03-05T10:39:30.870230291Z [inf]  2026-03-05T10:39:30.869Z  INFO 1 --- [ThesisRepo] [           main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2026-03-05T10:39:30.884969505Z [inf]  2026-03-05T10:39:30.880Z  INFO 1 --- [ThesisRepo] [           main] .s.b.a.l.ConditionEvaluationReportLogger : 
+2026-03-05T10:39:30.884976905Z [inf]  
+2026-03-05T10:39:30.884981515Z [inf]  Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2026-03-05T10:39:30.900253434Z [inf]  Message    : Connection to 127.0.0.1:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+2026-03-05T10:39:30.900260114Z [inf]  
+2026-03-05T10:39:30.900264394Z [inf]  	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:328) ~[spring-beans-6.2.11.jar!/:6.2.11]
+2026-03-05T10:39:30.900269314Z [inf]  	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:207) ~[spring-beans-6.2.11.jar!/:6.2.11]
+2026-03-05T10:39:30.900273394Z [inf]  	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:970) ~[spring-context-6.2.11.jar!/:6.2.11]
+2026-03-05T10:39:30.900303144Z [inf]  2026-03-05T10:39:30.895Z ERROR 1 --- [ThesisRepo] [           main] o.s.boot.SpringApplication               : Application run failed
+2026-03-05T10:39:30.900307214Z [inf]  
+2026-03-05T10:39:30.900312174Z [inf]  org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Failed to initialize dependency 'flywayInitializer' of LoadTimeWeaverAware bean 'entityManagerFactory': Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Unable to obtain connection from database: Connection to 127.0.0.1:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+2026-03-05T10:39:30.900315754Z [inf]  --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2026-03-05T10:39:30.900319474Z [inf]  SQL State  : 08001
+2026-03-05T10:39:30.900322794Z [inf]  Error Code : 0
+2026-03-05T10:39:30.902846106Z [inf]  	at org.springframework.boot.loader.launch.Launcher.launch(Launcher.java:102) ~[app.jar:0.0.1-SNAPSHOT]
+2026-03-05T10:39:30.902847825Z [inf]  	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627) ~[spring-context-6.2.11.jar!/:6.2.11]
+2026-03-05T10:39:30.902854825Z [inf]  	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.5.6.jar!/:3.5.6]
+2026-03-05T10:39:30.902855135Z [inf]  	at org.springframework.boot.loader.launch.Launcher.launch(Launcher.java:64) ~[app.jar:0.0.1-SNAPSHOT]
+2026-03-05T10:39:30.902859865Z [inf]  	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752) ~[spring-boot-3.5.6.jar!/:3.5.6]
+2026-03-05T10:39:30.902860845Z [inf]  	at org.springframework.boot.loader.launch.JarLauncher.main(JarLauncher.java:40) ~[app.jar:0.0.1-SNAPSHOT]
+2026-03-05T10:39:30.902865525Z [inf]  Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Unable to obtain connection from database: Connection to 127.0.0.1:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+2026-03-05T10:39:30.902867555Z [inf]  	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439) ~[spring-boot-3.5.6.jar!/:3.5.6]
+2026-03-05T10:39:30.902871945Z [inf]  	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318) ~[spring-boot-3.5.6.jar!/:3.5.6]
+2026-03-05T10:39:30.902876705Z [inf]  	at com.example.thesisrepo.ThesisRepoApplication.main(ThesisRepoApplication.java:16) ~[!/:0.0.1-SNAPSHOT]
+2026-03-05T10:39:30.902881865Z [inf]  	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+2026-03-05T10:39:30.902886315Z [inf]  	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[na:na]
+2026-03-05T10:39:30.902890035Z [inf]  	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[na:na]
+2026-03-05T10:39:30.902893685Z [inf]  	at java.base/java.lang.reflect.Method.invoke(Unknown Source) ~[na:na]
+2026-03-05T10:39:30.906202641Z [inf]  --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2026-03-05T10:39:30.906206431Z [inf]  SQL State  : 08001
+2026-03-05T10:39:30.906210471Z [inf]  Error Code : 0
+2026-03-05T10:39:30.906214721Z [inf]  Message    : Connection to 127.0.0.1:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+2026-03-05T10:39:30.906219611Z [inf]  
+2026-03-05T10:39:30.906223371Z [inf]  	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1826) ~[spring-beans-6.2.11.jar!/:6.2.11]
+2026-03-05T10:39:30.906226481Z [inf]  	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:607) ~[spring-beans-6.2.11.jar!/:6.2.11]
+2026-03-05T10:39:30.906229660Z [inf]  	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.11.jar!/:6.2.11]
+2026-03-05T10:39:30.906233870Z [inf]  	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.11.jar!/:6.2.11]
+2026-03-05T10:39:30.906237240Z [inf]  	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.11.jar!/:6.2.11]
+2026-03-05T10:39:30.906240540Z [inf]  	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.11.jar!/:6.2.11]
+2026-03-05T10:39:30.906243860Z [inf]  	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-6.2.11.jar!/:6.2.11]
+2026-03-05T10:39:30.906246930Z [inf]  	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:315) ~[spring-beans-6.2.11.jar!/:6.2.11]
+2026-03-05T10:39:30.907914118Z [inf]  	... 15 common frames omitted
+2026-03-05T10:39:30.907918008Z [inf]  Caused by: org.flywaydb.core.internal.exception.FlywaySqlException: Unable to obtain connection from database: Connection to 127.0.0.1:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+2026-03-05T10:39:30.907920728Z [inf]  --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2026-03-05T10:39:30.907923188Z [inf]  SQL State  : 08001
+2026-03-05T10:39:30.907925648Z [inf]  Error Code : 0
+2026-03-05T10:39:30.907928348Z [inf]  Message    : Connection to 127.0.0.1:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+2026-03-05T10:39:30.907930638Z [inf]  
+2026-03-05T10:39:30.907933208Z [inf]  	at org.flywaydb.core.internal.jdbc.JdbcUtils.openConnection(JdbcUtils.java:71) ~[flyway-core-11.7.2.jar!/:na]
+2026-03-05T10:39:30.907935938Z [inf]  	at org.flywaydb.core.internal.jdbc.JdbcConnectionFactory.<init>(JdbcConnectionFactory.java:76) ~[flyway-core-11.7.2.jar!/:na]
+2026-03-05T10:39:30.907938548Z [inf]  	at org.flywaydb.core.FlywayExecutor.execute(FlywayExecutor.java:136) ~[flyway-core-11.7.2.jar!/:na]
+2026-03-05T10:39:30.907940938Z [inf]  	at org.flywaydb.core.Flyway.migrate(Flyway.java:188) ~[flyway-core-11.7.2.jar!/:na]
+2026-03-05T10:39:30.907943208Z [inf]  	at org.springframework.boot.autoconfigure.flyway.FlywayMigrationInitializer.afterPropertiesSet(FlywayMigrationInitializer.java:66) ~[spring-boot-autoconfigure-3.5.6.jar!/:3.5.6]
+2026-03-05T10:39:30.907945528Z [inf]  	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1873) ~[spring-beans-6.2.11.jar!/:6.2.11]
+2026-03-05T10:39:30.907948578Z [inf]  	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1822) ~[spring-beans-6.2.11.jar!/:6.2.11]
+2026-03-05T10:39:30.909795525Z [inf]  	... 22 common frames omitted
+2026-03-05T10:39:30.909799185Z [inf]  Caused by: org.postgresql.util.PSQLException: Connection to 127.0.0.1:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+2026-03-05T10:39:30.909802105Z [inf]  	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:373) ~[postgresql-42.7.7.jar!/:42.7.7]
+2026-03-05T10:39:30.909805055Z [inf]  	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:57) ~[postgresql-42.7.7.jar!/:42.7.7]
+2026-03-05T10:39:30.909808395Z [inf]  	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:277) ~[postgresql-42.7.7.jar!/:42.7.7]
+2026-03-05T10:39:30.909811625Z [inf]  	at org.postgresql.Driver.makeConnection(Driver.java:448) ~[postgresql-42.7.7.jar!/:42.7.7]
+2026-03-05T10:39:30.909814375Z [inf]  	at org.postgresql.Driver.connect(Driver.java:298) ~[postgresql-42.7.7.jar!/:42.7.7]
+2026-03-05T10:39:30.909817245Z [inf]  	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:144) ~[HikariCP-6.3.3.jar!/:na]
+2026-03-05T10:39:30.909820385Z [inf]  	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:370) ~[HikariCP-6.3.3.jar!/:na]
+2026-03-05T10:39:30.909823675Z [inf]  	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:207) ~[HikariCP-6.3.3.jar!/:na]
+2026-03-05T10:39:30.909827955Z [inf]  	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:488) ~[HikariCP-6.3.3.jar!/:na]
+2026-03-05T10:39:30.909830985Z [inf]  	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:576) ~[HikariCP-6.3.3.jar!/:na]
+2026-03-05T10:39:30.909834125Z [inf]  	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:97) ~[HikariCP-6.3.3.jar!/:na]
+2026-03-05T10:39:30.909837205Z [inf]  	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:111) ~[HikariCP-6.3.3.jar!/:na]
+2026-03-05T10:39:30.911054906Z [inf]  	at org.flywaydb.core.internal.jdbc.JdbcUtils.openConnection(JdbcUtils.java:59) ~[flyway-core-11.7.2.jar!/:na]
+2026-03-05T10:39:30.911058896Z [inf]  	... 28 common frames omitted
+2026-03-05T10:39:30.911062066Z [inf]  Caused by: java.net.ConnectException: Connection refused
+2026-03-05T10:39:30.911064646Z [inf]  	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+2026-03-05T10:39:30.911067306Z [inf]  	at java.base/sun.nio.ch.Net.pollConnectNow(Unknown Source) ~[na:na]
+2026-03-05T10:39:30.911070016Z [inf]  	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(Unknown Source) ~[na:na]
+2026-03-05T10:39:30.911073106Z [inf]  	at java.base/sun.nio.ch.NioSocketImpl.connect(Unknown Source) ~[na:na]
+2026-03-05T10:39:30.911076716Z [inf]  	at java.base/java.net.SocksSocketImpl.connect(Unknown Source) ~[na:na]
+2026-03-05T10:39:30.911079356Z [inf]  	at java.base/java.net.Socket.connect(Unknown Source) ~[na:na]
+2026-03-05T10:39:30.911082526Z [inf]  	at org.postgresql.core.PGStream.createSocket(PGStream.java:261) ~[postgresql-42.7.7.jar!/:42.7.7]
+2026-03-05T10:39:30.911085346Z [inf]  	at org.postgresql.core.PGStream.<init>(PGStream.java:122) ~[postgresql-42.7.7.jar!/:42.7.7]
+2026-03-05T10:39:30.911088006Z [inf]  	at org.postgresql.core.v3.ConnectionFactoryImpl.tryConnect(ConnectionFactoryImpl.java:146) ~[postgresql-42.7.7.jar!/:42.7.7]
+2026-03-05T10:39:30.911090596Z [inf]  	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:289) ~[postgresql-42.7.7.jar!/:42.7.7]
+2026-03-05T10:39:30.911093156Z [inf]  	... 40 common frames omitted
+2026-03-05T10:39:30.911095835Z [inf]  
+2026-03-05T10:39:33.620265672Z [inf]   /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+2026-03-05T10:39:33.620272002Z [inf]  ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+2026-03-05T10:39:33.620276062Z [inf]   \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+2026-03-05T10:39:33.620280972Z [inf]    '  |____| .__|_| |_|_| |_\__, | / / / /
+2026-03-05T10:39:33.620284372Z [inf]   =========|_|==============|___/=/_/_/_/
+2026-03-05T10:39:33.620288482Z [inf]  
+2026-03-05T10:39:33.620291832Z [inf]   :: Spring Boot ::                (v3.5.6)
+2026-03-05T10:39:33.620295772Z [inf]  
+2026-03-05T10:39:33.620329132Z [inf]  
+2026-03-05T10:39:33.620332682Z [inf]    .   ____          _            __ _ _
+2026-03-05T10:39:33.905579132Z [inf]  2026-03-05T10:39:33.901Z  INFO 1 --- [ThesisRepo] [           main] c.e.t.config.PostgresPreflightCheck      : Skipping Postgres preflight check (cloud/Railway deployment detected)
+2026-03-05T10:39:33.910621955Z [inf]  2026-03-05T10:39:33.907Z  INFO 1 --- [ThesisRepo] [           main] c.e.thesisrepo.ThesisRepoApplication     : Starting ThesisRepoApplication v0.0.1-SNAPSHOT using Java 17.0.18 with PID 1 (/app/app.jar started by root in /app)
+2026-03-05T10:39:33.910625995Z [inf]  2026-03-05T10:39:33.908Z  INFO 1 --- [ThesisRepo] [           main] c.e.thesisrepo.ThesisRepoApplication     : The following 1 profile is active: "aad"
+2026-03-05T10:39:35.890262254Z [inf]  2026-03-05T10:39:35.886Z  INFO 1 --- [ThesisRepo] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-03-05T10:39:36.099676264Z [inf]  2026-03-05T10:39:36.097Z  INFO 1 --- [ThesisRepo] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 202 ms. Found 18 JPA repository interfaces.
+2026-03-05T10:39:38.684929767Z [inf]  2026-03-05T10:39:38.682Z  INFO 1 --- [ThesisRepo] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2026-03-05T10:39:38.784196057Z [inf]  2026-03-05T10:39:38.782Z  INFO 1 --- [ThesisRepo] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-03-05T10:39:38.784200137Z [inf]  2026-03-05T10:39:38.783Z  INFO 1 --- [ThesisRepo] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.46]
+2026-03-05T10:39:38.895109513Z [inf]  2026-03-05T10:39:38.892Z  INFO 1 --- [ThesisRepo] [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-03-05T10:39:38.895115403Z [inf]  2026-03-05T10:39:38.894Z  INFO 1 --- [ThesisRepo] [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 4800 ms
+2026-03-05T10:39:40.899924777Z [inf]  2026-03-05T10:39:40.891Z  INFO 1 --- [ThesisRepo] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-03-05T10:39:42.020489277Z [inf]  2026-03-05T10:39:42.010Z  WARN 1 --- [ThesisRepo] [           main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Failed to initialize dependency 'flywayInitializer' of LoadTimeWeaverAware bean 'entityManagerFactory': Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Unable to obtain connection from database: Connection to 127.0.0.1:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+2026-03-05T10:39:42.020495397Z [inf]  --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2026-03-05T10:39:42.020498537Z [inf]  SQL State  : 08001
+2026-03-05T10:39:42.020501357Z [inf]  Error Code : 0
+2026-03-05T10:39:42.020504547Z [inf]  Message    : Connection to 127.0.0.1:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+2026-03-05T10:39:42.020507666Z [inf]  
+2026-03-05T10:39:42.020510556Z [inf]  2026-03-05T10:39:42.014Z  INFO 1 --- [ThesisRepo] [           main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2026-03-05T10:39:42.027623404Z [inf]  2026-03-05T10:39:42.025Z  INFO 1 --- [ThesisRepo] [           main] .s.b.a.l.ConditionEvaluationReportLogger : 
+2026-03-05T10:39:42.027634134Z [inf]  
+2026-03-05T10:39:42.027640194Z [inf]  Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2026-03-05T10:39:42.049928352Z [inf]  2026-03-05T10:39:42.039Z ERROR 1 --- [ThesisRepo] [           main] o.s.boot.SpringApplication               : Application run failed
+2026-03-05T10:39:42.049933432Z [inf]  
+2026-03-05T10:39:42.049936442Z [inf]  org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Failed to initialize dependency 'flywayInitializer' of LoadTimeWeaverAware bean 'entityManagerFactory': Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Unable to obtain connection from database: Connection to 127.0.0.1:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+2026-03-05T10:39:42.049939212Z [inf]  --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2026-03-05T10:39:42.049942102Z [inf]  SQL State  : 08001
+2026-03-05T10:39:42.049944872Z [inf]  Error Code : 0
+2026-03-05T10:39:42.049947272Z [inf]  Message    : Connection to 127.0.0.1:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+2026-03-05T10:39:42.049949892Z [inf]  
+2026-03-05T10:39:42.049952162Z [inf]  	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:328) ~[spring-beans-6.2.11.jar!/:6.2.11]
+2026-03-05T10:39:42.049954752Z [inf]  	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:207) ~[spring-beans-6.2.11.jar!/:6.2.11]
+2026-03-05T10:39:42.049957142Z [inf]  	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:970) ~[spring-context-6.2.11.jar!/:6.2.11]
+2026-03-05T10:39:42.051113404Z [inf]  	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627) ~[spring-context-6.2.11.jar!/:6.2.11]
+2026-03-05T10:39:42.051124154Z [inf]  	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.5.6.jar!/:3.5.6]
+2026-03-05T10:39:42.051128834Z [inf]  	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752) ~[spring-boot-3.5.6.jar!/:3.5.6]
+2026-03-05T10:39:42.051134704Z [inf]  	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439) ~[spring-boot-3.5.6.jar!/:3.5.6]
+2026-03-05T10:39:42.051142374Z [inf]  	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318) ~[spring-boot-3.5.6.jar!/:3.5.6]
+2026-03-05T10:39:42.051146164Z [inf]  	at com.example.thesisrepo.ThesisRepoApplication.main(ThesisRepoApplication.java:16) ~[!/:0.0.1-SNAPSHOT]
+2026-03-05T10:39:42.051149774Z [inf]  	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+2026-03-05T10:39:42.051153154Z [inf]  	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[na:na]
+2026-03-05T10:39:42.051156754Z [inf]  	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[na:na]
+2026-03-05T10:39:42.051160854Z [inf]  	at java.base/java.lang.reflect.Method.invoke(Unknown Source) ~[na:na]
+2026-03-05T10:39:42.051163864Z [inf]  	at org.springframework.boot.loader.launch.Launcher.launch(Launcher.java:102) ~[app.jar:0.0.1-SNAPSHOT]
+2026-03-05T10:39:42.051168983Z [inf]  	at org.springframework.boot.loader.launch.Launcher.launch(Launcher.java:64) ~[app.jar:0.0.1-SNAPSHOT]
+2026-03-05T10:39:42.051171863Z [inf]  	at org.springframework.boot.loader.launch.JarLauncher.main(JarLauncher.java:40) ~[app.jar:0.0.1-SNAPSHOT]
+2026-03-05T10:39:42.051175303Z [inf]  Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Unable to obtain connection from database: Connection to 127.0.0.1:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+2026-03-05T10:39:42.052624143Z [inf]  --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2026-03-05T10:39:42.052627123Z [inf]  SQL State  : 08001
+2026-03-05T10:39:42.052629763Z [inf]  Error Code : 0
+2026-03-05T10:39:42.052632373Z [inf]  Message    : Connection to 127.0.0.1:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+2026-03-05T10:39:42.052634963Z [inf]  
+2026-03-05T10:39:42.052637643Z [inf]  	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1826) ~[spring-beans-6.2.11.jar!/:6.2.11]
+2026-03-05T10:39:42.052640133Z [inf]  	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:607) ~[spring-beans-6.2.11.jar!/:6.2.11]
+2026-03-05T10:39:42.052642603Z [inf]  	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.11.jar!/:6.2.11]
+2026-03-05T10:39:42.052645273Z [inf]  	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.11.jar!/:6.2.11]
+2026-03-05T10:39:42.052648313Z [inf]  	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.11.jar!/:6.2.11]
+2026-03-05T10:39:42.052650573Z [inf]  	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.11.jar!/:6.2.11]
+2026-03-05T10:39:42.052652873Z [inf]  	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-6.2.11.jar!/:6.2.11]
+2026-03-05T10:39:42.052655243Z [inf]  	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:315) ~[spring-beans-6.2.11.jar!/:6.2.11]
+2026-03-05T10:39:42.054560759Z [inf]  	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1873) ~[spring-beans-6.2.11.jar!/:6.2.11]
+2026-03-05T10:39:42.054566749Z [inf]  	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1822) ~[spring-beans-6.2.11.jar!/:6.2.11]
+2026-03-05T10:39:42.054572239Z [inf]  	... 15 common frames omitted
+2026-03-05T10:39:42.054577619Z [inf]  Caused by: org.flywaydb.core.internal.exception.FlywaySqlException: Unable to obtain connection from database: Connection to 127.0.0.1:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+2026-03-05T10:39:42.054580829Z [inf]  --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2026-03-05T10:39:42.054583459Z [inf]  SQL State  : 08001
+2026-03-05T10:39:42.054586479Z [inf]  Error Code : 0
+2026-03-05T10:39:42.054589489Z [inf]  Message    : Connection to 127.0.0.1:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+2026-03-05T10:39:42.054592929Z [inf]  
+2026-03-05T10:39:42.054595439Z [inf]  	at org.flywaydb.core.internal.jdbc.JdbcUtils.openConnection(JdbcUtils.java:71) ~[flyway-core-11.7.2.jar!/:na]
+2026-03-05T10:39:42.054599379Z [inf]  	at org.flywaydb.core.internal.jdbc.JdbcConnectionFactory.<init>(JdbcConnectionFactory.java:76) ~[flyway-core-11.7.2.jar!/:na]
+2026-03-05T10:39:42.054601889Z [inf]  	at org.flywaydb.core.FlywayExecutor.execute(FlywayExecutor.java:136) ~[flyway-core-11.7.2.jar!/:na]
+2026-03-05T10:39:42.054604589Z [inf]  	at org.flywaydb.core.Flyway.migrate(Flyway.java:188) ~[flyway-core-11.7.2.jar!/:na]
+2026-03-05T10:39:42.054607329Z [inf]  	at org.springframework.boot.autoconfigure.flyway.FlywayMigrationInitializer.afterPropertiesSet(FlywayMigrationInitializer.java:66) ~[spring-boot-autoconfigure-3.5.6.jar!/:3.5.6]
+2026-03-05T10:39:42.056283457Z [inf]  	... 22 common frames omitted
+2026-03-05T10:39:42.056295497Z [inf]  Caused by: org.postgresql.util.PSQLException: Connection to 127.0.0.1:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+2026-03-05T10:39:42.056301676Z [inf]  	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:373) ~[postgresql-42.7.7.jar!/:42.7.7]
+2026-03-05T10:39:42.056306406Z [inf]  	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:57) ~[postgresql-42.7.7.jar!/:42.7.7]
+2026-03-05T10:39:42.056310426Z [inf]  	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:277) ~[postgresql-42.7.7.jar!/:42.7.7]
+2026-03-05T10:39:42.056314976Z [inf]  	at org.postgresql.Driver.makeConnection(Driver.java:448) ~[postgresql-42.7.7.jar!/:42.7.7]
+2026-03-05T10:39:42.056322386Z [inf]  	at org.postgresql.Driver.connect(Driver.java:298) ~[postgresql-42.7.7.jar!/:42.7.7]
+2026-03-05T10:39:42.056326286Z [inf]  	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:144) ~[HikariCP-6.3.3.jar!/:na]
+2026-03-05T10:39:42.056330606Z [inf]  	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:370) ~[HikariCP-6.3.3.jar!/:na]
+2026-03-05T10:39:42.056335146Z [inf]  	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:207) ~[HikariCP-6.3.3.jar!/:na]
+2026-03-05T10:39:42.056339156Z [inf]  	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:488) ~[HikariCP-6.3.3.jar!/:na]
+2026-03-05T10:39:42.056342896Z [inf]  	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:576) ~[HikariCP-6.3.3.jar!/:na]
+2026-03-05T10:39:42.056347516Z [inf]  	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:97) ~[HikariCP-6.3.3.jar!/:na]
+2026-03-05T10:39:42.056351066Z [inf]  	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:111) ~[HikariCP-6.3.3.jar!/:na]
+2026-03-05T10:39:42.057877815Z [inf]  	at org.flywaydb.core.internal.jdbc.JdbcUtils.openConnection(JdbcUtils.java:59) ~[flyway-core-11.7.2.jar!/:na]
+2026-03-05T10:39:42.057885245Z [inf]  	... 28 common frames omitted
+2026-03-05T10:39:42.057890285Z [inf]  Caused by: java.net.ConnectException: Connection refused
+2026-03-05T10:39:42.057894765Z [inf]  	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+2026-03-05T10:39:42.057899285Z [inf]  	at java.base/sun.nio.ch.Net.pollConnectNow(Unknown Source) ~[na:na]
+2026-03-05T10:39:42.057904905Z [inf]  	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(Unknown Source) ~[na:na]
+2026-03-05T10:39:42.057910355Z [inf]  	at java.base/sun.nio.ch.NioSocketImpl.connect(Unknown Source) ~[na:na]
+2026-03-05T10:39:42.057915895Z [inf]  	at java.base/java.net.SocksSocketImpl.connect(Unknown Source) ~[na:na]
+2026-03-05T10:39:42.057921395Z [inf]  	at java.base/java.net.Socket.connect(Unknown Source) ~[na:na]
+2026-03-05T10:39:42.057932604Z [inf]  	at org.postgresql.core.PGStream.createSocket(PGStream.java:261) ~[postgresql-42.7.7.jar!/:42.7.7]
+2026-03-05T10:39:42.057938094Z [inf]  	at org.postgresql.core.PGStream.<init>(PGStream.java:122) ~[postgresql-42.7.7.jar!/:42.7.7]
+2026-03-05T10:39:42.057943424Z [inf]  	at org.postgresql.core.v3.ConnectionFactoryImpl.tryConnect(ConnectionFactoryImpl.java:146) ~[postgresql-42.7.7.jar!/:42.7.7]
+2026-03-05T10:39:42.057948344Z [inf]  	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:289) ~[postgresql-42.7.7.jar!/:42.7.7]
+2026-03-05T10:39:42.057953114Z [inf]  	... 40 common frames omitted
+2026-03-05T10:39:42.057958574Z [inf]  
+2026-03-05T10:39:44.887259705Z [inf]   \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+2026-03-05T10:39:44.887261055Z [inf]  
+2026-03-05T10:39:44.887266895Z [inf]    '  |____| .__|_| |_|_| |_\__, | / / / /
+2026-03-05T10:39:44.887270865Z [inf]    .   ____          _            __ _ _
+2026-03-05T10:39:44.887271655Z [inf]   =========|_|==============|___/=/_/_/_/
+2026-03-05T10:39:44.887275545Z [inf]  
+2026-03-05T10:39:44.887277675Z [inf]   /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+2026-03-05T10:39:44.887280385Z [inf]   :: Spring Boot ::                (v3.5.6)
+2026-03-05T10:39:44.887283245Z [inf]  ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+2026-03-05T10:39:44.887285095Z [inf]  
+2026-03-05T10:39:45.089015142Z [inf]  2026-03-05T10:39:45.084Z  INFO 1 --- [ThesisRepo] [           main] c.e.t.config.PostgresPreflightCheck      : Skipping Postgres preflight check (cloud/Railway deployment detected)
+2026-03-05T10:39:45.092810304Z [inf]  2026-03-05T10:39:45.091Z  INFO 1 --- [ThesisRepo] [           main] c.e.thesisrepo.ThesisRepoApplication     : Starting ThesisRepoApplication v0.0.1-SNAPSHOT using Java 17.0.18 with PID 1 (/app/app.jar started by root in /app)
+2026-03-05T10:39:45.095982000Z [inf]  2026-03-05T10:39:45.094Z  INFO 1 --- [ThesisRepo] [           main] c.e.thesisrepo.ThesisRepoApplication     : The following 1 profile is active: "aad"
+2026-03-05T10:39:47.189622878Z [inf]  2026-03-05T10:39:47.187Z  INFO 1 --- [ThesisRepo] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-03-05T10:39:47.678541020Z [inf]  2026-03-05T10:39:47.410Z  INFO 1 --- [ThesisRepo] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 214 ms. Found 18 JPA repository interfaces.
+2026-03-05T10:39:50.090990624Z [inf]  2026-03-05T10:39:50.083Z  INFO 1 --- [ThesisRepo] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2026-03-05T10:39:50.708509063Z [inf]  2026-03-05T10:39:50.286Z  INFO 1 --- [ThesisRepo] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-03-05T10:39:50.708512813Z [inf]  2026-03-05T10:39:50.290Z  INFO 1 --- [ThesisRepo] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.46]
+2026-03-05T10:39:50.708516543Z [inf]  2026-03-05T10:39:50.573Z  INFO 1 --- [ThesisRepo] [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-03-05T10:39:50.708520623Z [inf]  2026-03-05T10:39:50.576Z  INFO 1 --- [ThesisRepo] [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 5334 ms
+2026-03-05T10:39:52.986475592Z [inf]  2026-03-05T10:39:52.980Z  INFO 1 --- [ThesisRepo] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-03-05T10:39:54.191392208Z [inf]  2026-03-05T10:39:54.188Z  WARN 1 --- [ThesisRepo] [           main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Failed to initialize dependency 'flywayInitializer' of LoadTimeWeaverAware bean 'entityManagerFactory': Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Unable to obtain connection from database: Connection to 127.0.0.1:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+2026-03-05T10:39:54.191397128Z [inf]  --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2026-03-05T10:39:54.191401368Z [inf]  SQL State  : 08001
+2026-03-05T10:39:54.191405048Z [inf]  Error Code : 0
+2026-03-05T10:39:54.191408028Z [inf]  Message    : Connection to 127.0.0.1:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+2026-03-05T10:39:54.191410678Z [inf]  
+2026-03-05T10:39:54.192555539Z [inf]  2026-03-05T10:39:54.191Z  INFO 1 --- [ThesisRepo] [           main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2026-03-05T10:39:54.205748384Z [inf]  2026-03-05T10:39:54.199Z  INFO 1 --- [ThesisRepo] [           main] .s.b.a.l.ConditionEvaluationReportLogger : 
+2026-03-05T10:39:54.205753243Z [inf]  
+2026-03-05T10:39:54.205756003Z [inf]  Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2026-03-05T10:39:54.220165989Z [inf]  2026-03-05T10:39:54.210Z ERROR 1 --- [ThesisRepo] [           main] o.s.boot.SpringApplication               : Application run failed
+2026-03-05T10:39:54.220171599Z [inf]  
+2026-03-05T10:39:54.220175109Z [inf]  org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Failed to initialize dependency 'flywayInitializer' of LoadTimeWeaverAware bean 'entityManagerFactory': Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Unable to obtain connection from database: Connection to 127.0.0.1:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+2026-03-05T10:39:54.220178899Z [inf]  --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2026-03-05T10:39:54.220181969Z [inf]  SQL State  : 08001
+2026-03-05T10:39:54.220185639Z [inf]  Error Code : 0
+2026-03-05T10:39:54.220188589Z [inf]  Message    : Connection to 127.0.0.1:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+2026-03-05T10:39:54.220191479Z [inf]  
+2026-03-05T10:39:54.220194509Z [inf]  	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:328) ~[spring-beans-6.2.11.jar!/:6.2.11]
+2026-03-05T10:39:54.220197209Z [inf]  	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:207) ~[spring-beans-6.2.11.jar!/:6.2.11]
+2026-03-05T10:39:54.220200209Z [inf]  	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:970) ~[spring-context-6.2.11.jar!/:6.2.11]
+2026-03-05T10:39:54.221679708Z [inf]  	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627) ~[spring-context-6.2.11.jar!/:6.2.11]
+2026-03-05T10:39:54.221687648Z [inf]  	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.5.6.jar!/:3.5.6]
+2026-03-05T10:39:54.221692018Z [inf]  	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752) ~[spring-boot-3.5.6.jar!/:3.5.6]
+2026-03-05T10:39:54.221695118Z [inf]  	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439) ~[spring-boot-3.5.6.jar!/:3.5.6]
+2026-03-05T10:39:54.221698548Z [inf]  	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318) ~[spring-boot-3.5.6.jar!/:3.5.6]
+2026-03-05T10:39:54.221701748Z [inf]  	at com.example.thesisrepo.ThesisRepoApplication.main(ThesisRepoApplication.java:16) ~[!/:0.0.1-SNAPSHOT]
+2026-03-05T10:39:54.221705938Z [inf]  	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+2026-03-05T10:39:54.221710358Z [inf]  	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[na:na]
+2026-03-05T10:39:54.221715888Z [inf]  	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[na:na]
+2026-03-05T10:39:54.221719527Z [inf]  	at java.base/java.lang.reflect.Method.invoke(Unknown Source) ~[na:na]
+2026-03-05T10:39:54.221722537Z [inf]  	at org.springframework.boot.loader.launch.Launcher.launch(Launcher.java:102) ~[app.jar:0.0.1-SNAPSHOT]
+2026-03-05T10:39:54.221726087Z [inf]  	at org.springframework.boot.loader.launch.Launcher.launch(Launcher.java:64) ~[app.jar:0.0.1-SNAPSHOT]
+2026-03-05T10:39:54.221729097Z [inf]  	at org.springframework.boot.loader.launch.JarLauncher.main(JarLauncher.java:40) ~[app.jar:0.0.1-SNAPSHOT]
+2026-03-05T10:39:54.221732377Z [inf]  Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Unable to obtain connection from database: Connection to 127.0.0.1:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+2026-03-05T10:39:54.223868942Z [inf]  --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2026-03-05T10:39:54.223881252Z [inf]  SQL State  : 08001
+2026-03-05T10:39:54.223888152Z [inf]  Error Code : 0
+2026-03-05T10:39:54.223892162Z [inf]  Message    : Connection to 127.0.0.1:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+2026-03-05T10:39:54.223896132Z [inf]  
+2026-03-05T10:39:54.223912422Z [inf]  	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1826) ~[spring-beans-6.2.11.jar!/:6.2.11]
+2026-03-05T10:39:54.223915852Z [inf]  	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:607) ~[spring-beans-6.2.11.jar!/:6.2.11]
+2026-03-05T10:39:54.223919812Z [inf]  	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.11.jar!/:6.2.11]
+2026-03-05T10:39:54.223923302Z [inf]  	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.11.jar!/:6.2.11]
+2026-03-05T10:39:54.223928152Z [inf]  	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.11.jar!/:6.2.11]
+2026-03-05T10:39:54.223931552Z [inf]  	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.11.jar!/:6.2.11]
+2026-03-05T10:39:54.223934712Z [inf]  	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-6.2.11.jar!/:6.2.11]
+2026-03-05T10:39:54.223938552Z [inf]  	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:315) ~[spring-beans-6.2.11.jar!/:6.2.11]
+2026-03-05T10:39:54.225426810Z [inf]  	... 15 common frames omitted
+2026-03-05T10:39:54.225434050Z [inf]  Caused by: org.flywaydb.core.internal.exception.FlywaySqlException: Unable to obtain connection from database: Connection to 127.0.0.1:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+2026-03-05T10:39:54.225438220Z [inf]  --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2026-03-05T10:39:54.225444270Z [inf]  SQL State  : 08001
+2026-03-05T10:39:54.225463370Z [inf]  Error Code : 0
+2026-03-05T10:39:54.225468030Z [inf]  Message    : Connection to 127.0.0.1:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+2026-03-05T10:39:54.225472550Z [inf]  
+2026-03-05T10:39:54.225475810Z [inf]  	at org.flywaydb.core.internal.jdbc.JdbcUtils.openConnection(JdbcUtils.java:71) ~[flyway-core-11.7.2.jar!/:na]
+2026-03-05T10:39:54.225479150Z [inf]  	at org.flywaydb.core.internal.jdbc.JdbcConnectionFactory.<init>(JdbcConnectionFactory.java:76) ~[flyway-core-11.7.2.jar!/:na]
+2026-03-05T10:39:54.225483920Z [inf]  	at org.flywaydb.core.FlywayExecutor.execute(FlywayExecutor.java:136) ~[flyway-core-11.7.2.jar!/:na]
+2026-03-05T10:39:54.225487350Z [inf]  	at org.flywaydb.core.Flyway.migrate(Flyway.java:188) ~[flyway-core-11.7.2.jar!/:na]
+2026-03-05T10:39:54.225491120Z [inf]  	at org.springframework.boot.autoconfigure.flyway.FlywayMigrationInitializer.afterPropertiesSet(FlywayMigrationInitializer.java:66) ~[spring-boot-autoconfigure-3.5.6.jar!/:3.5.6]
+2026-03-05T10:39:54.225494360Z [inf]  	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1873) ~[spring-beans-6.2.11.jar!/:6.2.11]
+2026-03-05T10:39:54.225497380Z [inf]  	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1822) ~[spring-beans-6.2.11.jar!/:6.2.11]
+2026-03-05T10:39:54.227386456Z [inf]  	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:488) ~[HikariCP-6.3.3.jar!/:na]
+2026-03-05T10:39:54.227392826Z [inf]  	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:576) ~[HikariCP-6.3.3.jar!/:na]
+2026-03-05T10:39:54.227397286Z [inf]  	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:97) ~[HikariCP-6.3.3.jar!/:na]
+2026-03-05T10:39:54.227401036Z [inf]  	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:111) ~[HikariCP-6.3.3.jar!/:na]
+2026-03-05T10:39:54.227409426Z [inf]  	... 22 common frames omitted
+2026-03-05T10:39:54.227413306Z [inf]  Caused by: org.postgresql.util.PSQLException: Connection to 127.0.0.1:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+2026-03-05T10:39:54.227417235Z [inf]  	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:373) ~[postgresql-42.7.7.jar!/:42.7.7]
+2026-03-05T10:39:54.227420855Z [inf]  	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:57) ~[postgresql-42.7.7.jar!/:42.7.7]
+2026-03-05T10:39:54.227424365Z [inf]  	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:277) ~[postgresql-42.7.7.jar!/:42.7.7]
+2026-03-05T10:39:54.227428885Z [inf]  	at org.postgresql.Driver.makeConnection(Driver.java:448) ~[postgresql-42.7.7.jar!/:42.7.7]
+2026-03-05T10:39:54.227432395Z [inf]  	at org.postgresql.Driver.connect(Driver.java:298) ~[postgresql-42.7.7.jar!/:42.7.7]
+2026-03-05T10:39:54.227436075Z [inf]  	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:144) ~[HikariCP-6.3.3.jar!/:na]
+2026-03-05T10:39:54.227439635Z [inf]  	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:370) ~[HikariCP-6.3.3.jar!/:na]
+2026-03-05T10:39:54.227442785Z [inf]  	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:207) ~[HikariCP-6.3.3.jar!/:na]
+2026-03-05T10:39:54.229023885Z [inf]  	at org.flywaydb.core.internal.jdbc.JdbcUtils.openConnection(JdbcUtils.java:59) ~[flyway-core-11.7.2.jar!/:na]
+2026-03-05T10:39:54.229030915Z [inf]  	... 28 common frames omitted
+2026-03-05T10:39:54.229035545Z [inf]  Caused by: java.net.ConnectException: Connection refused
+2026-03-05T10:39:54.229039005Z [inf]  	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+2026-03-05T10:39:54.229042395Z [inf]  	at java.base/sun.nio.ch.Net.pollConnectNow(Unknown Source) ~[na:na]
+2026-03-05T10:39:54.229045714Z [inf]  	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(Unknown Source) ~[na:na]
+2026-03-05T10:39:54.229049974Z [inf]  	at java.base/sun.nio.ch.NioSocketImpl.connect(Unknown Source) ~[na:na]
+2026-03-05T10:39:54.229053594Z [inf]  	at java.base/java.net.SocksSocketImpl.connect(Unknown Source) ~[na:na]
+2026-03-05T10:39:54.229057104Z [inf]  	at java.base/java.net.Socket.connect(Unknown Source) ~[na:na]
+2026-03-05T10:39:54.229060654Z [inf]  	at org.postgresql.core.PGStream.createSocket(PGStream.java:261) ~[postgresql-42.7.7.jar!/:42.7.7]
+2026-03-05T10:39:54.229063764Z [inf]  	at org.postgresql.core.PGStream.<init>(PGStream.java:122) ~[postgresql-42.7.7.jar!/:42.7.7]
+2026-03-05T10:39:54.229066894Z [inf]  	at org.postgresql.core.v3.ConnectionFactoryImpl.tryConnect(ConnectionFactoryImpl.java:146) ~[postgresql-42.7.7.jar!/:42.7.7]
+2026-03-05T10:39:54.229070124Z [inf]  	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:289) ~[postgresql-42.7.7.jar!/:42.7.7]
+2026-03-05T10:39:54.229074984Z [inf]  	... 40 common frames omitted
+2026-03-05T10:39:54.229079794Z [inf]  
+2026-03-05T10:39:56.886788016Z [inf]  
+2026-03-05T10:39:56.886819126Z [inf]  
+2026-03-05T10:39:56.886823456Z [inf]    .   ____          _            __ _ _
+2026-03-05T10:39:56.886832545Z [inf]   /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+2026-03-05T10:39:56.886963664Z [inf]  ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+2026-03-05T10:39:56.886972654Z [inf]   \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+2026-03-05T10:39:56.886978184Z [inf]    '  |____| .__|_| |_|_| |_\__, | / / / /
+2026-03-05T10:39:56.886982184Z [inf]   =========|_|==============|___/=/_/_/_/
+2026-03-05T10:39:56.886986764Z [inf]  
+2026-03-05T10:39:56.886990644Z [inf]   :: Spring Boot ::                (v3.5.6)
+2026-03-05T10:39:57.185635627Z [inf]  2026-03-05T10:39:57.177Z  INFO 1 --- [ThesisRepo] [           main] c.e.t.config.PostgresPreflightCheck      : Skipping Postgres preflight check (cloud/Railway deployment detected)
+2026-03-05T10:39:57.185641577Z [inf]  2026-03-05T10:39:57.184Z  INFO 1 --- [ThesisRepo] [           main] c.e.thesisrepo.ThesisRepoApplication     : Starting ThesisRepoApplication v0.0.1-SNAPSHOT using Java 17.0.18 with PID 1 (/app/app.jar started by root in /app)
+2026-03-05T10:39:57.186727498Z [inf]  2026-03-05T10:39:57.185Z  INFO 1 --- [ThesisRepo] [           main] c.e.thesisrepo.ThesisRepoApplication     : The following 1 profile is active: "aad"
+2026-03-05T10:39:59.160264415Z [inf]  2026-03-05T10:39:59.159Z  INFO 1 --- [ThesisRepo] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-03-05T10:39:59.774522677Z [inf]  2026-03-05T10:39:59.412Z  INFO 1 --- [ThesisRepo] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 236 ms. Found 18 JPA repository interfaces.
+2026-03-05T10:40:01.892134287Z [inf]  2026-03-05T10:40:01.889Z  INFO 1 --- [ThesisRepo] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2026-03-05T10:40:01.986036125Z [inf]  2026-03-05T10:40:01.984Z  INFO 1 --- [ThesisRepo] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-03-05T10:40:01.986042595Z [inf]  2026-03-05T10:40:01.985Z  INFO 1 --- [ThesisRepo] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.46]
+2026-03-05T10:40:02.171321020Z [inf]  2026-03-05T10:40:02.168Z  INFO 1 --- [ThesisRepo] [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-03-05T10:40:02.171325940Z [inf]  2026-03-05T10:40:02.170Z  INFO 1 --- [ThesisRepo] [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 4884 ms
+2026-03-05T10:40:03.788222524Z [inf]  2026-03-05T10:40:03.784Z  INFO 1 --- [ThesisRepo] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-03-05T10:40:05.011014588Z [inf]  2026-03-05T10:40:05.000Z  WARN 1 --- [ThesisRepo] [           main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Failed to initialize dependency 'flywayInitializer' of LoadTimeWeaverAware bean 'entityManagerFactory': Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Unable to obtain connection from database: Connection to 127.0.0.1:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+2026-03-05T10:40:05.011022978Z [inf]  --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2026-03-05T10:40:05.011027818Z [inf]  SQL State  : 08001
+2026-03-05T10:40:05.011031838Z [inf]  Error Code : 0
+2026-03-05T10:40:05.011035918Z [inf]  Message    : Connection to 127.0.0.1:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+2026-03-05T10:40:05.011041088Z [inf]  
+2026-03-05T10:40:05.011044508Z [inf]  2026-03-05T10:40:05.004Z  INFO 1 --- [ThesisRepo] [           main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2026-03-05T10:40:05.030355967Z [inf]  2026-03-05T10:40:05.024Z  INFO 1 --- [ThesisRepo] [           main] .s.b.a.l.ConditionEvaluationReportLogger : 
+2026-03-05T10:40:05.030364457Z [inf]  
+2026-03-05T10:40:05.030369497Z [inf]  Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2026-03-05T10:40:05.059714995Z [inf]  2026-03-05T10:40:05.048Z ERROR 1 --- [ThesisRepo] [           main] o.s.boot.SpringApplication               : Application run failed
+2026-03-05T10:40:05.059723495Z [inf]  
+2026-03-05T10:40:05.059732945Z [inf]  org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Failed to initialize dependency 'flywayInitializer' of LoadTimeWeaverAware bean 'entityManagerFactory': Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Unable to obtain connection from database: Connection to 127.0.0.1:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+2026-03-05T10:40:05.059737705Z [inf]  --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2026-03-05T10:40:05.059744975Z [inf]  SQL State  : 08001
+2026-03-05T10:40:05.059749605Z [inf]  Error Code : 0
+2026-03-05T10:40:05.059754025Z [inf]  Message    : Connection to 127.0.0.1:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+2026-03-05T10:40:05.059757874Z [inf]  
+2026-03-05T10:40:05.059761384Z [inf]  	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:328) ~[spring-beans-6.2.11.jar!/:6.2.11]
+2026-03-05T10:40:05.059764824Z [inf]  	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:207) ~[spring-beans-6.2.11.jar!/:6.2.11]
+2026-03-05T10:40:05.059768334Z [inf]  	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:970) ~[spring-context-6.2.11.jar!/:6.2.11]
+2026-03-05T10:40:05.061832740Z [inf]  	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627) ~[spring-context-6.2.11.jar!/:6.2.11]
+2026-03-05T10:40:05.061838820Z [inf]  	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.5.6.jar!/:3.5.6]
+2026-03-05T10:40:05.061843440Z [inf]  	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752) ~[spring-boot-3.5.6.jar!/:3.5.6]
+2026-03-05T10:40:05.061847290Z [inf]  	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439) ~[spring-boot-3.5.6.jar!/:3.5.6]
+2026-03-05T10:40:05.061850970Z [inf]  	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318) ~[spring-boot-3.5.6.jar!/:3.5.6]
+2026-03-05T10:40:05.061854679Z [inf]  	at com.example.thesisrepo.ThesisRepoApplication.main(ThesisRepoApplication.java:16) ~[!/:0.0.1-SNAPSHOT]
+2026-03-05T10:40:05.061859829Z [inf]  	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+2026-03-05T10:40:05.061863449Z [inf]  	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[na:na]
+2026-03-05T10:40:05.061867159Z [inf]  	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[na:na]
+2026-03-05T10:40:05.061870819Z [inf]  	at java.base/java.lang.reflect.Method.invoke(Unknown Source) ~[na:na]
+2026-03-05T10:40:05.061874409Z [inf]  	at org.springframework.boot.loader.launch.Launcher.launch(Launcher.java:102) ~[app.jar:0.0.1-SNAPSHOT]
+2026-03-05T10:40:05.061879549Z [inf]  	at org.springframework.boot.loader.launch.Launcher.launch(Launcher.java:64) ~[app.jar:0.0.1-SNAPSHOT]
+2026-03-05T10:40:05.061883719Z [inf]  	at org.springframework.boot.loader.launch.JarLauncher.main(JarLauncher.java:40) ~[app.jar:0.0.1-SNAPSHOT]
+2026-03-05T10:40:05.061887729Z [inf]  Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Unable to obtain connection from database: Connection to 127.0.0.1:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+2026-03-05T10:40:05.063993303Z [inf]  --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2026-03-05T10:40:05.063999333Z [inf]  SQL State  : 08001
+2026-03-05T10:40:05.064003653Z [inf]  Error Code : 0
+2026-03-05T10:40:05.064007423Z [inf]  Message    : Connection to 127.0.0.1:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+2026-03-05T10:40:05.064011203Z [inf]  
+2026-03-05T10:40:05.064015133Z [inf]  	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1826) ~[spring-beans-6.2.11.jar!/:6.2.11]
+2026-03-05T10:40:05.064020283Z [inf]  	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:607) ~[spring-beans-6.2.11.jar!/:6.2.11]
+2026-03-05T10:40:05.064024183Z [inf]  	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.11.jar!/:6.2.11]
+2026-03-05T10:40:05.064028113Z [inf]  	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.11.jar!/:6.2.11]
+2026-03-05T10:40:05.064031573Z [inf]  	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.11.jar!/:6.2.11]
+2026-03-05T10:40:05.064034973Z [inf]  	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.11.jar!/:6.2.11]
+2026-03-05T10:40:05.064038063Z [inf]  	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-6.2.11.jar!/:6.2.11]
+2026-03-05T10:40:05.064041253Z [inf]  	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:315) ~[spring-beans-6.2.11.jar!/:6.2.11]
+2026-03-05T10:40:05.065485062Z [inf]  	... 15 common frames omitted
+2026-03-05T10:40:05.065489492Z [inf]  Caused by: org.flywaydb.core.internal.exception.FlywaySqlException: Unable to obtain connection from database: Connection to 127.0.0.1:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+2026-03-05T10:40:05.065493652Z [inf]  --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2026-03-05T10:40:05.065497722Z [inf]  SQL State  : 08001
+2026-03-05T10:40:05.065519722Z [inf]  Error Code : 0
+2026-03-05T10:40:05.065523712Z [inf]  Message    : Connection to 127.0.0.1:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+2026-03-05T10:40:05.065527632Z [inf]  
+2026-03-05T10:40:05.065531212Z [inf]  	at org.flywaydb.core.internal.jdbc.JdbcUtils.openConnection(JdbcUtils.java:71) ~[flyway-core-11.7.2.jar!/:na]
+2026-03-05T10:40:05.065535452Z [inf]  	at org.flywaydb.core.internal.jdbc.JdbcConnectionFactory.<init>(JdbcConnectionFactory.java:76) ~[flyway-core-11.7.2.jar!/:na]
+2026-03-05T10:40:05.065539012Z [inf]  	at org.flywaydb.core.FlywayExecutor.execute(FlywayExecutor.java:136) ~[flyway-core-11.7.2.jar!/:na]
+2026-03-05T10:40:05.065542692Z [inf]  	at org.flywaydb.core.Flyway.migrate(Flyway.java:188) ~[flyway-core-11.7.2.jar!/:na]
+2026-03-05T10:40:05.065546472Z [inf]  	at org.springframework.boot.autoconfigure.flyway.FlywayMigrationInitializer.afterPropertiesSet(FlywayMigrationInitializer.java:66) ~[spring-boot-autoconfigure-3.5.6.jar!/:3.5.6]
+2026-03-05T10:40:05.065550402Z [inf]  	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1873) ~[spring-beans-6.2.11.jar!/:6.2.11]
+2026-03-05T10:40:05.065554052Z [inf]  	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1822) ~[spring-beans-6.2.11.jar!/:6.2.11]
+2026-03-05T10:40:05.068018434Z [inf]  	... 22 common frames omitted
+2026-03-05T10:40:05.068023444Z [inf]  Caused by: org.postgresql.util.PSQLException: Connection to 127.0.0.1:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+2026-03-05T10:40:05.068027624Z [inf]  	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:373) ~[postgresql-42.7.7.jar!/:42.7.7]
+2026-03-05T10:40:05.068031144Z [inf]  	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:57) ~[postgresql-42.7.7.jar!/:42.7.7]
+2026-03-05T10:40:05.068035134Z [inf]  	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:277) ~[postgresql-42.7.7.jar!/:42.7.7]
+2026-03-05T10:40:05.068038814Z [inf]  	at org.postgresql.Driver.makeConnection(Driver.java:448) ~[postgresql-42.7.7.jar!/:42.7.7]
+2026-03-05T10:40:05.068042514Z [inf]  	at org.postgresql.Driver.connect(Driver.java:298) ~[postgresql-42.7.7.jar!/:42.7.7]
+2026-03-05T10:40:05.068046214Z [inf]  	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:144) ~[HikariCP-6.3.3.jar!/:na]
+2026-03-05T10:40:05.068049834Z [inf]  	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:370) ~[HikariCP-6.3.3.jar!/:na]
+2026-03-05T10:40:05.068054124Z [inf]  	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:207) ~[HikariCP-6.3.3.jar!/:na]
+2026-03-05T10:40:05.068057434Z [inf]  	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:488) ~[HikariCP-6.3.3.jar!/:na]
+2026-03-05T10:40:05.068060694Z [inf]  	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:576) ~[HikariCP-6.3.3.jar!/:na]
+2026-03-05T10:40:05.068063924Z [inf]  	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:97) ~[HikariCP-6.3.3.jar!/:na]
+2026-03-05T10:40:05.068068074Z [inf]  	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:111) ~[HikariCP-6.3.3.jar!/:na]
+2026-03-05T10:40:05.072263364Z [inf]  	at org.flywaydb.core.internal.jdbc.JdbcUtils.openConnection(JdbcUtils.java:59) ~[flyway-core-11.7.2.jar!/:na]
+2026-03-05T10:40:05.072272904Z [inf]  	... 28 common frames omitted
+2026-03-05T10:40:05.072279384Z [inf]  Caused by: java.net.ConnectException: Connection refused
+2026-03-05T10:40:05.072283874Z [inf]  	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+2026-03-05T10:40:05.072288974Z [inf]  	at java.base/sun.nio.ch.Net.pollConnectNow(Unknown Source) ~[na:na]
+2026-03-05T10:40:05.072294104Z [inf]  	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(Unknown Source) ~[na:na]
+2026-03-05T10:40:05.072298634Z [inf]  	at java.base/sun.nio.ch.NioSocketImpl.connect(Unknown Source) ~[na:na]
+2026-03-05T10:40:05.072303024Z [inf]  	at java.base/java.net.SocksSocketImpl.connect(Unknown Source) ~[na:na]
+2026-03-05T10:40:05.072310004Z [inf]  	at java.base/java.net.Socket.connect(Unknown Source) ~[na:na]
+2026-03-05T10:40:05.072314404Z [inf]  	at org.postgresql.core.PGStream.createSocket(PGStream.java:261) ~[postgresql-42.7.7.jar!/:42.7.7]
+2026-03-05T10:40:05.072318714Z [inf]  	at org.postgresql.core.PGStream.<init>(PGStream.java:122) ~[postgresql-42.7.7.jar!/:42.7.7]
+2026-03-05T10:40:05.072323254Z [inf]  	at org.postgresql.core.v3.ConnectionFactoryImpl.tryConnect(ConnectionFactoryImpl.java:146) ~[postgresql-42.7.7.jar!/:42.7.7]
+2026-03-05T10:40:05.072327534Z [inf]  	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:289) ~[postgresql-42.7.7.jar!/:42.7.7]
+2026-03-05T10:40:05.072332134Z [inf]  	... 40 common frames omitted
+2026-03-05T10:40:05.072336403Z [inf]  
+2026-03-05T10:40:07.811947127Z [inf]   =========|_|==============|___/=/_/_/_/
+2026-03-05T10:40:07.811951847Z [inf]  
+2026-03-05T10:40:07.811955627Z [inf]   :: Spring Boot ::                (v3.5.6)
+2026-03-05T10:40:07.811959577Z [inf]  
+2026-03-05T10:40:07.812017836Z [inf]  
+2026-03-05T10:40:07.812022816Z [inf]    .   ____          _            __ _ _
+2026-03-05T10:40:07.812026986Z [inf]   /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+2026-03-05T10:40:07.812031916Z [inf]  ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+2026-03-05T10:40:07.812036116Z [inf]   \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+2026-03-05T10:40:07.812040366Z [inf]    '  |____| .__|_| |_|_| |_\__, | / / / /
+2026-03-05T10:40:07.960802196Z [inf]  2026-03-05T10:40:07.950Z  INFO 1 --- [ThesisRepo] [           main] c.e.t.config.PostgresPreflightCheck      : Skipping Postgres preflight check (cloud/Railway deployment detected)
+2026-03-05T10:40:07.960808416Z [inf]  2026-03-05T10:40:07.959Z  INFO 1 --- [ThesisRepo] [           main] c.e.thesisrepo.ThesisRepoApplication     : Starting ThesisRepoApplication v0.0.1-SNAPSHOT using Java 17.0.18 with PID 1 (/app/app.jar started by root in /app)
+2026-03-05T10:40:07.962977630Z [inf]  2026-03-05T10:40:07.960Z  INFO 1 --- [ThesisRepo] [           main] c.e.thesisrepo.ThesisRepoApplication     : The following 1 profile is active: "aad"
+2026-03-05T10:40:09.849620065Z [inf]  2026-03-05T10:40:09.847Z  INFO 1 --- [ThesisRepo] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-03-05T10:40:10.141180958Z [inf]  2026-03-05T10:40:10.132Z  INFO 1 --- [ThesisRepo] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 274 ms. Found 18 JPA repository interfaces.
+2026-03-05T10:40:13.059554572Z [inf]  2026-03-05T10:40:13.054Z  INFO 1 --- [ThesisRepo] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2026-03-05T10:40:13.161184445Z [inf]  2026-03-05T10:40:13.154Z  INFO 1 --- [ThesisRepo] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-03-05T10:40:13.161190555Z [inf]  2026-03-05T10:40:13.155Z  INFO 1 --- [ThesisRepo] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.46]
+2026-03-05T10:40:13.871955475Z [inf]  2026-03-05T10:40:13.540Z  INFO 1 --- [ThesisRepo] [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-03-05T10:40:13.871959475Z [inf]  2026-03-05T10:40:13.542Z  INFO 1 --- [ThesisRepo] [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 5471 ms
+2026-03-05T10:40:15.870390786Z [inf]  2026-03-05T10:40:15.667Z  INFO 1 --- [ThesisRepo] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-03-05T10:40:16.847796210Z [inf]  2026-03-05T10:40:16.796Z  WARN 1 --- [ThesisRepo] [           main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Failed to initialize dependency 'flywayInitializer' of LoadTimeWeaverAware bean 'entityManagerFactory': Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Unable to obtain connection from database: Connection to 127.0.0.1:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+2026-03-05T10:40:16.847801870Z [inf]  --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2026-03-05T10:40:16.847806690Z [inf]  SQL State  : 08001
+2026-03-05T10:40:16.847811400Z [inf]  Error Code : 0
+2026-03-05T10:40:16.847815790Z [inf]  Message    : Connection to 127.0.0.1:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+2026-03-05T10:40:16.847821190Z [inf]  
+2026-03-05T10:40:16.847827540Z [inf]  2026-03-05T10:40:16.800Z  INFO 1 --- [ThesisRepo] [           main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2026-03-05T10:40:16.847832410Z [inf]  2026-03-05T10:40:16.814Z  INFO 1 --- [ThesisRepo] [           main] .s.b.a.l.ConditionEvaluationReportLogger : 
+2026-03-05T10:40:16.847839430Z [inf]  
+2026-03-05T10:40:16.847844090Z [inf]  Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2026-03-05T10:40:16.849946994Z [inf]  	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:970) ~[spring-context-6.2.11.jar!/:6.2.11]
+2026-03-05T10:40:16.849956104Z [inf]  2026-03-05T10:40:16.830Z ERROR 1 --- [ThesisRepo] [           main] o.s.boot.SpringApplication               : Application run failed
+2026-03-05T10:40:16.849963174Z [inf]  
+2026-03-05T10:40:16.849967734Z [inf]  org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Failed to initialize dependency 'flywayInitializer' of LoadTimeWeaverAware bean 'entityManagerFactory': Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Unable to obtain connection from database: Connection to 127.0.0.1:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+2026-03-05T10:40:16.849972184Z [inf]  --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2026-03-05T10:40:16.849975944Z [inf]  SQL State  : 08001
+2026-03-05T10:40:16.849979914Z [inf]  Error Code : 0
+2026-03-05T10:40:16.849984494Z [inf]  Message    : Connection to 127.0.0.1:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+2026-03-05T10:40:16.849988244Z [inf]  
+2026-03-05T10:40:16.849992754Z [inf]  	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:328) ~[spring-beans-6.2.11.jar!/:6.2.11]
+2026-03-05T10:40:16.849996334Z [inf]  	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:207) ~[spring-beans-6.2.11.jar!/:6.2.11]
+2026-03-05T10:40:16.852486636Z [inf]  	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627) ~[spring-context-6.2.11.jar!/:6.2.11]
+2026-03-05T10:40:16.852493356Z [inf]  	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.5.6.jar!/:3.5.6]
+2026-03-05T10:40:16.852497516Z [inf]  	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752) ~[spring-boot-3.5.6.jar!/:3.5.6]
+2026-03-05T10:40:16.852501416Z [inf]  	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439) ~[spring-boot-3.5.6.jar!/:3.5.6]
+2026-03-05T10:40:16.852504606Z [inf]  	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318) ~[spring-boot-3.5.6.jar!/:3.5.6]
+2026-03-05T10:40:16.852508426Z [inf]  	at com.example.thesisrepo.ThesisRepoApplication.main(ThesisRepoApplication.java:16) ~[!/:0.0.1-SNAPSHOT]
+2026-03-05T10:40:16.852511016Z [inf]  	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+2026-03-05T10:40:16.852513806Z [inf]  	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[na:na]
+2026-03-05T10:40:16.852516936Z [inf]  	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[na:na]
+2026-03-05T10:40:16.852540145Z [inf]  	at java.base/java.lang.reflect.Method.invoke(Unknown Source) ~[na:na]
+2026-03-05T10:40:16.852543275Z [inf]  	at org.springframework.boot.loader.launch.Launcher.launch(Launcher.java:102) ~[app.jar:0.0.1-SNAPSHOT]
+2026-03-05T10:40:16.852545955Z [inf]  	at org.springframework.boot.loader.launch.Launcher.launch(Launcher.java:64) ~[app.jar:0.0.1-SNAPSHOT]
+2026-03-05T10:40:16.852548605Z [inf]  	at org.springframework.boot.loader.launch.JarLauncher.main(JarLauncher.java:40) ~[app.jar:0.0.1-SNAPSHOT]
+2026-03-05T10:40:16.852553505Z [inf]  Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Unable to obtain connection from database: Connection to 127.0.0.1:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+2026-03-05T10:40:16.855007118Z [inf]  --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2026-03-05T10:40:16.855013858Z [inf]  SQL State  : 08001
+2026-03-05T10:40:16.855018327Z [inf]  Error Code : 0
+2026-03-05T10:40:16.855022697Z [inf]  Message    : Connection to 127.0.0.1:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+2026-03-05T10:40:16.855028017Z [inf]  
+2026-03-05T10:40:16.855032227Z [inf]  	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1826) ~[spring-beans-6.2.11.jar!/:6.2.11]
+2026-03-05T10:40:16.855037627Z [inf]  	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:607) ~[spring-beans-6.2.11.jar!/:6.2.11]
+2026-03-05T10:40:16.855041607Z [inf]  	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.11.jar!/:6.2.11]
+2026-03-05T10:40:16.855045477Z [inf]  	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.11.jar!/:6.2.11]
+2026-03-05T10:40:16.855049857Z [inf]  	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.11.jar!/:6.2.11]
+2026-03-05T10:40:16.855053737Z [inf]  	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.11.jar!/:6.2.11]
+2026-03-05T10:40:16.855057277Z [inf]  	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-6.2.11.jar!/:6.2.11]
+2026-03-05T10:40:16.855060967Z [inf]  	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:315) ~[spring-beans-6.2.11.jar!/:6.2.11]
+2026-03-05T10:40:16.857214292Z [inf]  	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1873) ~[spring-beans-6.2.11.jar!/:6.2.11]
+2026-03-05T10:40:16.857226012Z [inf]  	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1822) ~[spring-beans-6.2.11.jar!/:6.2.11]
+2026-03-05T10:40:16.857229122Z [inf]  	... 15 common frames omitted
+2026-03-05T10:40:16.857235782Z [inf]  Caused by: org.flywaydb.core.internal.exception.FlywaySqlException: Unable to obtain connection from database: Connection to 127.0.0.1:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+2026-03-05T10:40:16.857241181Z [inf]  --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2026-03-05T10:40:16.857245191Z [inf]  SQL State  : 08001
+2026-03-05T10:40:16.857249011Z [inf]  Error Code : 0
+2026-03-05T10:40:16.857252881Z [inf]  Message    : Connection to 127.0.0.1:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+2026-03-05T10:40:16.857257341Z [inf]  
+2026-03-05T10:40:16.857262301Z [inf]  	at org.flywaydb.core.internal.jdbc.JdbcUtils.openConnection(JdbcUtils.java:71) ~[flyway-core-11.7.2.jar!/:na]
+2026-03-05T10:40:16.857267141Z [inf]  	at org.flywaydb.core.internal.jdbc.JdbcConnectionFactory.<init>(JdbcConnectionFactory.java:76) ~[flyway-core-11.7.2.jar!/:na]
+2026-03-05T10:40:16.857271191Z [inf]  	at org.flywaydb.core.FlywayExecutor.execute(FlywayExecutor.java:136) ~[flyway-core-11.7.2.jar!/:na]
+2026-03-05T10:40:16.857274871Z [inf]  	at org.flywaydb.core.Flyway.migrate(Flyway.java:188) ~[flyway-core-11.7.2.jar!/:na]
+2026-03-05T10:40:16.857279541Z [inf]  	at org.springframework.boot.autoconfigure.flyway.FlywayMigrationInitializer.afterPropertiesSet(FlywayMigrationInitializer.java:66) ~[spring-boot-autoconfigure-3.5.6.jar!/:3.5.6]
+2026-03-05T10:40:16.858840640Z [inf]  	... 22 common frames omitted
+2026-03-05T10:40:16.858849330Z [inf]  Caused by: org.postgresql.util.PSQLException: Connection to 127.0.0.1:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+2026-03-05T10:40:16.858854169Z [inf]  	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:373) ~[postgresql-42.7.7.jar!/:42.7.7]
+2026-03-05T10:40:16.858858009Z [inf]  	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:57) ~[postgresql-42.7.7.jar!/:42.7.7]
+2026-03-05T10:40:16.858861879Z [inf]  	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:277) ~[postgresql-42.7.7.jar!/:42.7.7]
+2026-03-05T10:40:16.858865779Z [inf]  	at org.postgresql.Driver.makeConnection(Driver.java:448) ~[postgresql-42.7.7.jar!/:42.7.7]
+2026-03-05T10:40:16.858868879Z [inf]  	at org.postgresql.Driver.connect(Driver.java:298) ~[postgresql-42.7.7.jar!/:42.7.7]
+2026-03-05T10:40:16.858872469Z [inf]  	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:144) ~[HikariCP-6.3.3.jar!/:na]
+2026-03-05T10:40:16.858876339Z [inf]  	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:370) ~[HikariCP-6.3.3.jar!/:na]
+2026-03-05T10:40:16.858880549Z [inf]  	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:207) ~[HikariCP-6.3.3.jar!/:na]
+2026-03-05T10:40:16.858884819Z [inf]  	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:488) ~[HikariCP-6.3.3.jar!/:na]
+2026-03-05T10:40:16.858888539Z [inf]  	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:576) ~[HikariCP-6.3.3.jar!/:na]
+2026-03-05T10:40:16.858892589Z [inf]  	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:97) ~[HikariCP-6.3.3.jar!/:na]
+2026-03-05T10:40:16.858896299Z [inf]  	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:111) ~[HikariCP-6.3.3.jar!/:na]
+2026-03-05T10:40:16.860563857Z [inf]  	at org.flywaydb.core.internal.jdbc.JdbcUtils.openConnection(JdbcUtils.java:59) ~[flyway-core-11.7.2.jar!/:na]
+2026-03-05T10:40:16.860570097Z [inf]  	... 28 common frames omitted
+2026-03-05T10:40:16.860574777Z [inf]  Caused by: java.net.ConnectException: Connection refused
+2026-03-05T10:40:16.860578767Z [inf]  	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+2026-03-05T10:40:16.860583287Z [inf]  	at java.base/sun.nio.ch.Net.pollConnectNow(Unknown Source) ~[na:na]
+2026-03-05T10:40:16.860587407Z [inf]  	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(Unknown Source) ~[na:na]
+2026-03-05T10:40:16.860590997Z [inf]  	at java.base/sun.nio.ch.NioSocketImpl.connect(Unknown Source) ~[na:na]
+2026-03-05T10:40:16.860594977Z [inf]  	at java.base/java.net.SocksSocketImpl.connect(Unknown Source) ~[na:na]
+2026-03-05T10:40:16.860598657Z [inf]  	at java.base/java.net.Socket.connect(Unknown Source) ~[na:na]
+2026-03-05T10:40:16.860602597Z [inf]  	at org.postgresql.core.PGStream.createSocket(PGStream.java:261) ~[postgresql-42.7.7.jar!/:42.7.7]
+2026-03-05T10:40:16.860606316Z [inf]  	at org.postgresql.core.PGStream.<init>(PGStream.java:122) ~[postgresql-42.7.7.jar!/:42.7.7]
+2026-03-05T10:40:16.860612616Z [inf]  	at org.postgresql.core.v3.ConnectionFactoryImpl.tryConnect(ConnectionFactoryImpl.java:146) ~[postgresql-42.7.7.jar!/:42.7.7]
+2026-03-05T10:40:16.860616236Z [inf]  	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:289) ~[postgresql-42.7.7.jar!/:42.7.7]
+2026-03-05T10:40:16.860620826Z [inf]  	... 40 common frames omitted
+2026-03-05T10:40:16.860624996Z [inf]  
+2026-03-05T10:40:20.951650844Z [inf]  
+2026-03-05T10:40:20.951655764Z [inf]    .   ____          _            __ _ _
+2026-03-05T10:40:20.951660824Z [inf]   /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+2026-03-05T10:40:20.951665084Z [inf]  ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+2026-03-05T10:40:20.951670894Z [inf]   \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+2026-03-05T10:40:20.951676244Z [inf]    '  |____| .__|_| |_|_| |_\__, | / / / /
+2026-03-05T10:40:20.951681494Z [inf]   =========|_|==============|___/=/_/_/_/
+2026-03-05T10:40:20.951685894Z [inf]  
+2026-03-05T10:40:20.951690824Z [inf]   :: Spring Boot ::                (v3.5.6)
+2026-03-05T10:40:20.951695474Z [inf]  
+2026-03-05T10:40:21.097784123Z [inf]  2026-03-05T10:40:21.092Z  INFO 1 --- [ThesisRepo] [           main] c.e.t.config.PostgresPreflightCheck      : Skipping Postgres preflight check (cloud/Railway deployment detected)
+2026-03-05T10:40:21.100803462Z [inf]  2026-03-05T10:40:21.099Z  INFO 1 --- [ThesisRepo] [           main] c.e.thesisrepo.ThesisRepoApplication     : Starting ThesisRepoApplication v0.0.1-SNAPSHOT using Java 17.0.18 with PID 1 (/app/app.jar started by root in /app)
+2026-03-05T10:40:21.100810271Z [inf]  2026-03-05T10:40:21.100Z  INFO 1 --- [ThesisRepo] [           main] c.e.thesisrepo.ThesisRepoApplication     : The following 1 profile is active: "aad"
+2026-03-05T10:40:23.325813456Z [inf]  2026-03-05T10:40:23.306Z  INFO 1 --- [ThesisRepo] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-03-05T10:40:23.949024140Z [inf]  2026-03-05T10:40:23.570Z  INFO 1 --- [ThesisRepo] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 221 ms. Found 18 JPA repository interfaces.
+2026-03-05T10:40:26.863099641Z [inf]  2026-03-05T10:40:26.790Z  INFO 1 --- [ThesisRepo] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2026-03-05T10:40:26.948837679Z [inf]  2026-03-05T10:40:26.942Z  INFO 1 --- [ThesisRepo] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-03-05T10:40:26.948843849Z [inf]  2026-03-05T10:40:26.943Z  INFO 1 --- [ThesisRepo] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.46]
+2026-03-05T10:40:27.204905990Z [inf]  2026-03-05T10:40:27.188Z  INFO 1 --- [ThesisRepo] [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-03-05T10:40:27.204909010Z [inf]  2026-03-05T10:40:27.190Z  INFO 1 --- [ThesisRepo] [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 5935 ms
+2026-03-05T10:40:28.990735391Z [inf]  2026-03-05T10:40:28.952Z  INFO 1 --- [ThesisRepo] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-03-05T10:40:30.115302205Z [inf]  2026-03-05T10:40:30.107Z  WARN 1 --- [ThesisRepo] [           main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Failed to initialize dependency 'flywayInitializer' of LoadTimeWeaverAware bean 'entityManagerFactory': Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Unable to obtain connection from database: Connection to 127.0.0.1:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+2026-03-05T10:40:30.115322895Z [inf]  --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2026-03-05T10:40:30.115329515Z [inf]  SQL State  : 08001
+2026-03-05T10:40:30.115335044Z [inf]  Error Code : 0
+2026-03-05T10:40:30.115340304Z [inf]  Message    : Connection to 127.0.0.1:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+2026-03-05T10:40:30.115346234Z [inf]  
+2026-03-05T10:40:30.115350474Z [inf]  2026-03-05T10:40:30.110Z  INFO 1 --- [ThesisRepo] [           main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2026-03-05T10:40:30.123422826Z [inf]  2026-03-05T10:40:30.120Z  INFO 1 --- [ThesisRepo] [           main] .s.b.a.l.ConditionEvaluationReportLogger : 
+2026-03-05T10:40:30.123429646Z [inf]  
+2026-03-05T10:40:30.123434166Z [inf]  Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2026-03-05T10:40:30.140221184Z [inf]  2026-03-05T10:40:30.132Z ERROR 1 --- [ThesisRepo] [           main] o.s.boot.SpringApplication               : Application run failed
+2026-03-05T10:40:30.140230364Z [inf]  
+2026-03-05T10:40:30.140235944Z [inf]  org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Failed to initialize dependency 'flywayInitializer' of LoadTimeWeaverAware bean 'entityManagerFactory': Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Unable to obtain connection from database: Connection to 127.0.0.1:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+2026-03-05T10:40:30.140241254Z [inf]  --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2026-03-05T10:40:30.140245584Z [inf]  SQL State  : 08001
+2026-03-05T10:40:30.140250154Z [inf]  Error Code : 0
+2026-03-05T10:40:30.140254404Z [inf]  Message    : Connection to 127.0.0.1:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+2026-03-05T10:40:30.140258443Z [inf]  
+2026-03-05T10:40:30.140262353Z [inf]  	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:328) ~[spring-beans-6.2.11.jar!/:6.2.11]
+2026-03-05T10:40:30.140267063Z [inf]  	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:207) ~[spring-beans-6.2.11.jar!/:6.2.11]
+2026-03-05T10:40:30.140271483Z [inf]  	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:970) ~[spring-context-6.2.11.jar!/:6.2.11]
+2026-03-05T10:40:30.142298699Z [inf]  	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627) ~[spring-context-6.2.11.jar!/:6.2.11]
+2026-03-05T10:40:30.142309489Z [inf]  	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.5.6.jar!/:3.5.6]
+2026-03-05T10:40:30.142316679Z [inf]  	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752) ~[spring-boot-3.5.6.jar!/:3.5.6]
+2026-03-05T10:40:30.142321649Z [inf]  	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439) ~[spring-boot-3.5.6.jar!/:3.5.6]
+2026-03-05T10:40:30.142326639Z [inf]  	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318) ~[spring-boot-3.5.6.jar!/:3.5.6]
+2026-03-05T10:40:30.142331459Z [inf]  	at com.example.thesisrepo.ThesisRepoApplication.main(ThesisRepoApplication.java:16) ~[!/:0.0.1-SNAPSHOT]
+2026-03-05T10:40:30.142335889Z [inf]  	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+2026-03-05T10:40:30.142340039Z [inf]  	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[na:na]
+2026-03-05T10:40:30.142344819Z [inf]  	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[na:na]
+2026-03-05T10:40:30.142350009Z [inf]  	at java.base/java.lang.reflect.Method.invoke(Unknown Source) ~[na:na]
+2026-03-05T10:40:30.142354059Z [inf]  	at org.springframework.boot.loader.launch.Launcher.launch(Launcher.java:102) ~[app.jar:0.0.1-SNAPSHOT]
+2026-03-05T10:40:30.142358079Z [inf]  	at org.springframework.boot.loader.launch.Launcher.launch(Launcher.java:64) ~[app.jar:0.0.1-SNAPSHOT]
+2026-03-05T10:40:30.142362309Z [inf]  	at org.springframework.boot.loader.launch.JarLauncher.main(JarLauncher.java:40) ~[app.jar:0.0.1-SNAPSHOT]
+2026-03-05T10:40:30.142366609Z [inf]  Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Unable to obtain connection from database: Connection to 127.0.0.1:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+2026-03-05T10:40:30.144781061Z [inf]  --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2026-03-05T10:40:30.144785721Z [inf]  SQL State  : 08001
+2026-03-05T10:40:30.144789161Z [inf]  Error Code : 0
+2026-03-05T10:40:30.144792741Z [inf]  Message    : Connection to 127.0.0.1:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+2026-03-05T10:40:30.144796271Z [inf]  
+2026-03-05T10:40:30.144799741Z [inf]  	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1826) ~[spring-beans-6.2.11.jar!/:6.2.11]
+2026-03-05T10:40:30.144803491Z [inf]  	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:607) ~[spring-beans-6.2.11.jar!/:6.2.11]
+2026-03-05T10:40:30.144806601Z [inf]  	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.11.jar!/:6.2.11]
+2026-03-05T10:40:30.144809861Z [inf]  	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.11.jar!/:6.2.11]
+2026-03-05T10:40:30.144812931Z [inf]  	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.11.jar!/:6.2.11]
+2026-03-05T10:40:30.144815741Z [inf]  	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.11.jar!/:6.2.11]
+2026-03-05T10:40:30.144818651Z [inf]  	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-6.2.11.jar!/:6.2.11]
+2026-03-05T10:40:30.144821691Z [inf]  	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:315) ~[spring-beans-6.2.11.jar!/:6.2.11]
+2026-03-05T10:40:30.147258313Z [inf]  	... 15 common frames omitted
+2026-03-05T10:40:30.147264303Z [inf]  Caused by: org.flywaydb.core.internal.exception.FlywaySqlException: Unable to obtain connection from database: Connection to 127.0.0.1:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+2026-03-05T10:40:30.147269073Z [inf]  --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2026-03-05T10:40:30.147273303Z [inf]  SQL State  : 08001
+2026-03-05T10:40:30.147277283Z [inf]  Error Code : 0
+2026-03-05T10:40:30.147313373Z [inf]  Message    : Connection to 127.0.0.1:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+2026-03-05T10:40:30.147317343Z [inf]  
+2026-03-05T10:40:30.147321313Z [inf]  	at org.flywaydb.core.internal.jdbc.JdbcUtils.openConnection(JdbcUtils.java:71) ~[flyway-core-11.7.2.jar!/:na]
+2026-03-05T10:40:30.147324983Z [inf]  	at org.flywaydb.core.internal.jdbc.JdbcConnectionFactory.<init>(JdbcConnectionFactory.java:76) ~[flyway-core-11.7.2.jar!/:na]
+2026-03-05T10:40:30.147328313Z [inf]  	at org.flywaydb.core.FlywayExecutor.execute(FlywayExecutor.java:136) ~[flyway-core-11.7.2.jar!/:na]
+2026-03-05T10:40:30.147332242Z [inf]  	at org.flywaydb.core.Flyway.migrate(Flyway.java:188) ~[flyway-core-11.7.2.jar!/:na]
+2026-03-05T10:40:30.147336262Z [inf]  	at org.springframework.boot.autoconfigure.flyway.FlywayMigrationInitializer.afterPropertiesSet(FlywayMigrationInitializer.java:66) ~[spring-boot-autoconfigure-3.5.6.jar!/:3.5.6]
+2026-03-05T10:40:30.147339562Z [inf]  	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1873) ~[spring-beans-6.2.11.jar!/:6.2.11]
+2026-03-05T10:40:30.147343092Z [inf]  	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1822) ~[spring-beans-6.2.11.jar!/:6.2.11]
+2026-03-05T10:40:30.149613916Z [inf]  	... 22 common frames omitted
+2026-03-05T10:40:30.149624126Z [inf]  Caused by: org.postgresql.util.PSQLException: Connection to 127.0.0.1:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+2026-03-05T10:40:30.149634466Z [inf]  	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:373) ~[postgresql-42.7.7.jar!/:42.7.7]
+2026-03-05T10:40:30.149640626Z [inf]  	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:57) ~[postgresql-42.7.7.jar!/:42.7.7]
+2026-03-05T10:40:30.149645476Z [inf]  	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:277) ~[postgresql-42.7.7.jar!/:42.7.7]
+2026-03-05T10:40:30.149651396Z [inf]  	at org.postgresql.Driver.makeConnection(Driver.java:448) ~[postgresql-42.7.7.jar!/:42.7.7]
+2026-03-05T10:40:30.149656076Z [inf]  	at org.postgresql.Driver.connect(Driver.java:298) ~[postgresql-42.7.7.jar!/:42.7.7]
+2026-03-05T10:40:30.149660606Z [inf]  	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:144) ~[HikariCP-6.3.3.jar!/:na]
+2026-03-05T10:40:30.149665136Z [inf]  	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:370) ~[HikariCP-6.3.3.jar!/:na]
+2026-03-05T10:40:30.149672376Z [inf]  	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:207) ~[HikariCP-6.3.3.jar!/:na]
+2026-03-05T10:40:30.149677556Z [inf]  	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:488) ~[HikariCP-6.3.3.jar!/:na]
+2026-03-05T10:40:30.149682676Z [inf]  	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:576) ~[HikariCP-6.3.3.jar!/:na]
+2026-03-05T10:40:30.149688106Z [inf]  	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:97) ~[HikariCP-6.3.3.jar!/:na]
+2026-03-05T10:40:30.149692846Z [inf]  	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:111) ~[HikariCP-6.3.3.jar!/:na]
+2026-03-05T10:40:30.152470635Z [inf]  	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:289) ~[postgresql-42.7.7.jar!/:42.7.7]
+2026-03-05T10:40:30.152481185Z [inf]  	at org.flywaydb.core.internal.jdbc.JdbcUtils.openConnection(JdbcUtils.java:59) ~[flyway-core-11.7.2.jar!/:na]
+2026-03-05T10:40:30.152481545Z [inf]  	... 40 common frames omitted
+2026-03-05T10:40:30.152491295Z [inf]  	... 28 common frames omitted
+2026-03-05T10:40:30.152493575Z [inf]  
+2026-03-05T10:40:30.152496975Z [inf]  Caused by: java.net.ConnectException: Connection refused
+2026-03-05T10:40:30.152500365Z [inf]  	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+2026-03-05T10:40:30.152503965Z [inf]  	at java.base/sun.nio.ch.Net.pollConnectNow(Unknown Source) ~[na:na]
+2026-03-05T10:40:30.152507605Z [inf]  	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(Unknown Source) ~[na:na]
+2026-03-05T10:40:30.152511925Z [inf]  	at java.base/sun.nio.ch.NioSocketImpl.connect(Unknown Source) ~[na:na]
+2026-03-05T10:40:30.152515155Z [inf]  	at java.base/java.net.SocksSocketImpl.connect(Unknown Source) ~[na:na]
+2026-03-05T10:40:30.152518425Z [inf]  	at java.base/java.net.Socket.connect(Unknown Source) ~[na:na]
+2026-03-05T10:40:30.152521745Z [inf]  	at org.postgresql.core.PGStream.createSocket(PGStream.java:261) ~[postgresql-42.7.7.jar!/:42.7.7]
+2026-03-05T10:40:30.152524915Z [inf]  	at org.postgresql.core.PGStream.<init>(PGStream.java:122) ~[postgresql-42.7.7.jar!/:42.7.7]
+2026-03-05T10:40:30.152528105Z [inf]  	at org.postgresql.core.v3.ConnectionFactoryImpl.tryConnect(ConnectionFactoryImpl.java:146) ~[postgresql-42.7.7.jar!/:42.7.7]
+2026-03-05T10:40:32.946718834Z [inf]   =========|_|==============|___/=/_/_/_/
+2026-03-05T10:40:32.946730723Z [inf]  
+2026-03-05T10:40:32.946736003Z [inf]   :: Spring Boot ::                (v3.5.6)
+2026-03-05T10:40:32.946739923Z [inf]  
+2026-03-05T10:40:32.946810523Z [inf]  
+2026-03-05T10:40:32.946816113Z [inf]    .   ____          _            __ _ _
+2026-03-05T10:40:32.946821593Z [inf]   /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+2026-03-05T10:40:32.946827463Z [inf]  ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+2026-03-05T10:40:32.946832283Z [inf]   \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+2026-03-05T10:40:32.946836893Z [inf]    '  |____| .__|_| |_|_| |_\__, | / / / /
+2026-03-05T10:40:32.994151679Z [inf]  2026-03-05T10:40:32.990Z  INFO 1 --- [ThesisRepo] [           main] c.e.t.config.PostgresPreflightCheck      : Skipping Postgres preflight check (cloud/Railway deployment detected)
+2026-03-05T10:40:33.003017174Z [inf]  2026-03-05T10:40:32.998Z  INFO 1 --- [ThesisRepo] [           main] c.e.thesisrepo.ThesisRepoApplication     : Starting ThesisRepoApplication v0.0.1-SNAPSHOT using Java 17.0.18 with PID 1 (/app/app.jar started by root in /app)
+2026-03-05T10:40:33.003027474Z [inf]  2026-03-05T10:40:32.999Z  INFO 1 --- [ThesisRepo] [           main] c.e.thesisrepo.ThesisRepoApplication     : The following 1 profile is active: "aad"
+2026-03-05T10:40:35.098845314Z [inf]  2026-03-05T10:40:35.086Z  INFO 1 --- [ThesisRepo] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-03-05T10:40:35.346615125Z [inf]  2026-03-05T10:40:35.345Z  INFO 1 --- [ThesisRepo] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 250 ms. Found 18 JPA repository interfaces.
+2026-03-05T10:40:38.189229030Z [inf]  2026-03-05T10:40:38.172Z  INFO 1 --- [ThesisRepo] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2026-03-05T10:40:38.268769612Z [inf]  2026-03-05T10:40:38.253Z  INFO 1 --- [ThesisRepo] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-03-05T10:40:38.268773482Z [inf]  2026-03-05T10:40:38.267Z  INFO 1 --- [ThesisRepo] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.46]
+2026-03-05T10:40:38.396065818Z [inf]  2026-03-05T10:40:38.381Z  INFO 1 --- [ThesisRepo] [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-03-05T10:40:38.462458616Z [inf]  2026-03-05T10:40:38.453Z  INFO 1 --- [ThesisRepo] [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 5212 ms
+2026-03-05T10:40:40.292579684Z [inf]  2026-03-05T10:40:40.284Z  INFO 1 --- [ThesisRepo] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-03-05T10:40:42.000438489Z [inf]  2026-03-05T10:40:41.591Z  WARN 1 --- [ThesisRepo] [           main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Failed to initialize dependency 'flywayInitializer' of LoadTimeWeaverAware bean 'entityManagerFactory': Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Unable to obtain connection from database: Connection to 127.0.0.1:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+2026-03-05T10:40:42.000442189Z [inf]  --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2026-03-05T10:40:42.000445799Z [inf]  SQL State  : 08001
+2026-03-05T10:40:42.000449629Z [inf]  Error Code : 0
+2026-03-05T10:40:42.000453139Z [inf]  Message    : Connection to 127.0.0.1:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+2026-03-05T10:40:42.000457579Z [inf]  
+2026-03-05T10:40:42.000473489Z [inf]  2026-03-05T10:40:41.594Z  INFO 1 --- [ThesisRepo] [           main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2026-03-05T10:40:42.000476989Z [inf]  2026-03-05T10:40:41.604Z  INFO 1 --- [ThesisRepo] [           main] .s.b.a.l.ConditionEvaluationReportLogger : 
+2026-03-05T10:40:42.000480529Z [inf]  
+2026-03-05T10:40:42.000483999Z [inf]  Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2026-03-05T10:40:42.004616780Z [inf]  2026-03-05T10:40:41.615Z ERROR 1 --- [ThesisRepo] [           main] o.s.boot.SpringApplication               : Application run failed
+2026-03-05T10:40:42.004620010Z [inf]  
+2026-03-05T10:40:42.004623140Z [inf]  org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Failed to initialize dependency 'flywayInitializer' of LoadTimeWeaverAware bean 'entityManagerFactory': Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Unable to obtain connection from database: Connection to 127.0.0.1:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+2026-03-05T10:40:42.004625710Z [inf]  --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2026-03-05T10:40:42.004628210Z [inf]  SQL State  : 08001
+2026-03-05T10:40:42.004630730Z [inf]  Error Code : 0
+2026-03-05T10:40:42.004634310Z [inf]  Message    : Connection to 127.0.0.1:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+2026-03-05T10:40:42.004637459Z [inf]  
+2026-03-05T10:40:42.004640299Z [inf]  	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:328) ~[spring-beans-6.2.11.jar!/:6.2.11]
+2026-03-05T10:40:42.004645499Z [inf]  	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:207) ~[spring-beans-6.2.11.jar!/:6.2.11]
+2026-03-05T10:40:42.004647879Z [inf]  	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:970) ~[spring-context-6.2.11.jar!/:6.2.11]
+2026-03-05T10:40:42.007878955Z [inf]  	at org.springframework.boot.loader.launch.Launcher.launch(Launcher.java:64) ~[app.jar:0.0.1-SNAPSHOT]
+2026-03-05T10:40:42.007888375Z [inf]  	at org.springframework.boot.loader.launch.JarLauncher.main(JarLauncher.java:40) ~[app.jar:0.0.1-SNAPSHOT]
+2026-03-05T10:40:42.007895285Z [inf]  Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Unable to obtain connection from database: Connection to 127.0.0.1:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+2026-03-05T10:40:42.007979685Z [inf]  	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627) ~[spring-context-6.2.11.jar!/:6.2.11]
+2026-03-05T10:40:42.007983875Z [inf]  	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.5.6.jar!/:3.5.6]
+2026-03-05T10:40:42.007988465Z [inf]  	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752) ~[spring-boot-3.5.6.jar!/:3.5.6]
+2026-03-05T10:40:42.007993135Z [inf]  	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439) ~[spring-boot-3.5.6.jar!/:3.5.6]
+2026-03-05T10:40:42.007996764Z [inf]  	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318) ~[spring-boot-3.5.6.jar!/:3.5.6]
+2026-03-05T10:40:42.008014124Z [inf]  	at com.example.thesisrepo.ThesisRepoApplication.main(ThesisRepoApplication.java:16) ~[!/:0.0.1-SNAPSHOT]
+2026-03-05T10:40:42.008018014Z [inf]  	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+2026-03-05T10:40:42.008022524Z [inf]  	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[na:na]
+2026-03-05T10:40:42.008027064Z [inf]  	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[na:na]
+2026-03-05T10:40:42.008030814Z [inf]  	at java.base/java.lang.reflect.Method.invoke(Unknown Source) ~[na:na]
+2026-03-05T10:40:42.008034344Z [inf]  	at org.springframework.boot.loader.launch.Launcher.launch(Launcher.java:102) ~[app.jar:0.0.1-SNAPSHOT]
+2026-03-05T10:40:42.009541533Z [inf]  	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-6.2.11.jar!/:6.2.11]
+2026-03-05T10:40:42.009547813Z [inf]  	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:315) ~[spring-beans-6.2.11.jar!/:6.2.11]
+2026-03-05T10:40:42.009556573Z [inf]  SQL State  : 08001
+2026-03-05T10:40:42.009562643Z [inf]  Error Code : 0
+2026-03-05T10:40:42.009568533Z [inf]  Message    : Connection to 127.0.0.1:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+2026-03-05T10:40:42.009572343Z [inf]  	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:607) ~[spring-beans-6.2.11.jar!/:6.2.11]
+2026-03-05T10:40:42.009578383Z [inf]  
+2026-03-05T10:40:42.009580523Z [inf]  	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.11.jar!/:6.2.11]
+2026-03-05T10:40:42.009588823Z [inf]  	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.11.jar!/:6.2.11]
+2026-03-05T10:40:42.009589463Z [inf]  	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1826) ~[spring-beans-6.2.11.jar!/:6.2.11]
+2026-03-05T10:40:42.009593863Z [inf]  	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.11.jar!/:6.2.11]
+2026-03-05T10:40:42.009598363Z [inf]  	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.11.jar!/:6.2.11]
+2026-03-05T10:40:42.009601473Z [inf]  --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2026-03-05T10:40:42.011886666Z [inf]  	... 15 common frames omitted
+2026-03-05T10:40:42.011889046Z [inf]  Caused by: org.flywaydb.core.internal.exception.FlywaySqlException: Unable to obtain connection from database: Connection to 127.0.0.1:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+2026-03-05T10:40:42.011891546Z [inf]  --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2026-03-05T10:40:42.011894176Z [inf]  SQL State  : 08001
+2026-03-05T10:40:42.011896806Z [inf]  Error Code : 0
+2026-03-05T10:40:42.011899306Z [inf]  Message    : Connection to 127.0.0.1:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+2026-03-05T10:40:42.011902136Z [inf]  
+2026-03-05T10:40:42.011905016Z [inf]  	at org.flywaydb.core.internal.jdbc.JdbcUtils.openConnection(JdbcUtils.java:71) ~[flyway-core-11.7.2.jar!/:na]
+2026-03-05T10:40:42.011907486Z [inf]  	at org.flywaydb.core.internal.jdbc.JdbcConnectionFactory.<init>(JdbcConnectionFactory.java:76) ~[flyway-core-11.7.2.jar!/:na]
+2026-03-05T10:40:42.011909796Z [inf]  	at org.flywaydb.core.FlywayExecutor.execute(FlywayExecutor.java:136) ~[flyway-core-11.7.2.jar!/:na]
+2026-03-05T10:40:42.011912136Z [inf]  	at org.flywaydb.core.Flyway.migrate(Flyway.java:188) ~[flyway-core-11.7.2.jar!/:na]
+2026-03-05T10:40:42.011914656Z [inf]  	at org.springframework.boot.autoconfigure.flyway.FlywayMigrationInitializer.afterPropertiesSet(FlywayMigrationInitializer.java:66) ~[spring-boot-autoconfigure-3.5.6.jar!/:3.5.6]
+2026-03-05T10:40:42.011917126Z [inf]  	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1873) ~[spring-beans-6.2.11.jar!/:6.2.11]
+2026-03-05T10:40:42.011919296Z [inf]  	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1822) ~[spring-beans-6.2.11.jar!/:6.2.11]
+2026-03-05T10:40:42.015095314Z [inf]  	... 22 common frames omitted
+2026-03-05T10:40:42.015099464Z [inf]  Caused by: org.postgresql.util.PSQLException: Connection to 127.0.0.1:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+2026-03-05T10:40:42.015102484Z [inf]  	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:373) ~[postgresql-42.7.7.jar!/:42.7.7]
+2026-03-05T10:40:42.015106214Z [inf]  	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:57) ~[postgresql-42.7.7.jar!/:42.7.7]
+2026-03-05T10:40:42.015109814Z [inf]  	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:277) ~[postgresql-42.7.7.jar!/:42.7.7]
+2026-03-05T10:40:42.015113094Z [inf]  	at org.postgresql.Driver.makeConnection(Driver.java:448) ~[postgresql-42.7.7.jar!/:42.7.7]
+2026-03-05T10:40:42.015116063Z [inf]  	at org.postgresql.Driver.connect(Driver.java:298) ~[postgresql-42.7.7.jar!/:42.7.7]
+2026-03-05T10:40:42.015120703Z [inf]  	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:144) ~[HikariCP-6.3.3.jar!/:na]
+2026-03-05T10:40:42.015123803Z [inf]  	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:370) ~[HikariCP-6.3.3.jar!/:na]
+2026-03-05T10:40:42.015127123Z [inf]  	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:207) ~[HikariCP-6.3.3.jar!/:na]
+2026-03-05T10:40:42.015130423Z [inf]  	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:488) ~[HikariCP-6.3.3.jar!/:na]
+2026-03-05T10:40:42.015133523Z [inf]  	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:576) ~[HikariCP-6.3.3.jar!/:na]
+2026-03-05T10:40:42.015137583Z [inf]  	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:97) ~[HikariCP-6.3.3.jar!/:na]
+2026-03-05T10:40:42.015140973Z [inf]  	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:111) ~[HikariCP-6.3.3.jar!/:na]
+2026-03-05T10:40:42.015801958Z [inf]  	... 40 common frames omitted
+2026-03-05T10:40:42.015806978Z [inf]  
+2026-03-05T10:40:42.015815228Z [inf]  Caused by: java.net.ConnectException: Connection refused
+2026-03-05T10:40:42.015819518Z [inf]  	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+2026-03-05T10:40:42.015824088Z [inf]  	at java.base/sun.nio.ch.Net.pollConnectNow(Unknown Source) ~[na:na]
+2026-03-05T10:40:42.015828288Z [inf]  	at org.flywaydb.core.internal.jdbc.JdbcUtils.openConnection(JdbcUtils.java:59) ~[flyway-core-11.7.2.jar!/:na]
+2026-03-05T10:40:42.015830268Z [inf]  	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(Unknown Source) ~[na:na]
+2026-03-05T10:40:42.015836538Z [inf]  	... 28 common frames omitted
+2026-03-05T10:40:42.015836788Z [inf]  	at java.base/sun.nio.ch.NioSocketImpl.connect(Unknown Source) ~[na:na]
+2026-03-05T10:40:42.015843378Z [inf]  	at java.base/java.net.SocksSocketImpl.connect(Unknown Source) ~[na:na]
+2026-03-05T10:40:42.015846808Z [inf]  	at java.base/java.net.Socket.connect(Unknown Source) ~[na:na]
+2026-03-05T10:40:42.015850898Z [inf]  	at org.postgresql.core.PGStream.createSocket(PGStream.java:261) ~[postgresql-42.7.7.jar!/:42.7.7]
+2026-03-05T10:40:42.015856017Z [inf]  	at org.postgresql.core.PGStream.<init>(PGStream.java:122) ~[postgresql-42.7.7.jar!/:42.7.7]
+2026-03-05T10:40:42.015860087Z [inf]  	at org.postgresql.core.v3.ConnectionFactoryImpl.tryConnect(ConnectionFactoryImpl.java:146) ~[postgresql-42.7.7.jar!/:42.7.7]
+2026-03-05T10:40:42.015863287Z [inf]  	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:289) ~[postgresql-42.7.7.jar!/:42.7.7]
+2026-03-05T10:40:44.447750884Z [inf]  
+2026-03-05T10:40:44.447756254Z [inf]    .   ____          _            __ _ _
+2026-03-05T10:40:44.447760334Z [inf]   /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+2026-03-05T10:40:44.447763874Z [inf]  ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+2026-03-05T10:40:44.447767084Z [inf]   \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+2026-03-05T10:40:44.447771304Z [inf]    '  |____| .__|_| |_|_| |_\__, | / / / /
+2026-03-05T10:40:44.447785404Z [inf]   =========|_|==============|___/=/_/_/_/
+2026-03-05T10:40:44.447789054Z [inf]  
+2026-03-05T10:40:44.447792334Z [inf]   :: Spring Boot ::                (v3.5.6)
+2026-03-05T10:40:44.447796144Z [inf]  
+2026-03-05T10:40:44.978651748Z [inf]  2026-03-05T10:40:44.635Z  INFO 1 --- [ThesisRepo] [           main] c.e.t.config.PostgresPreflightCheck      : Skipping Postgres preflight check (cloud/Railway deployment detected)
+2026-03-05T10:40:44.978658658Z [inf]  2026-03-05T10:40:44.641Z  INFO 1 --- [ThesisRepo] [           main] c.e.thesisrepo.ThesisRepoApplication     : Starting ThesisRepoApplication v0.0.1-SNAPSHOT using Java 17.0.18 with PID 1 (/app/app.jar started by root in /app)
+2026-03-05T10:40:44.978662738Z [inf]  2026-03-05T10:40:44.643Z  INFO 1 --- [ThesisRepo] [           main] c.e.thesisrepo.ThesisRepoApplication     : The following 1 profile is active: "aad"
+2026-03-05T10:40:47.027598775Z [inf]  2026-03-05T10:40:46.858Z  INFO 1 --- [ThesisRepo] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-03-05T10:40:47.094136802Z [inf]  2026-03-05T10:40:47.090Z  INFO 1 --- [ThesisRepo] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 223 ms. Found 18 JPA repository interfaces.
+2026-03-05T10:40:49.980981473Z [inf]  2026-03-05T10:40:49.949Z  INFO 1 --- [ThesisRepo] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2026-03-05T10:40:50.049037838Z [inf]  2026-03-05T10:40:50.042Z  INFO 1 --- [ThesisRepo] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-03-05T10:40:50.049041478Z [inf]  2026-03-05T10:40:50.042Z  INFO 1 --- [ThesisRepo] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.46]
+2026-03-05T10:40:50.232484895Z [inf]  2026-03-05T10:40:50.231Z  INFO 1 --- [ThesisRepo] [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-03-05T10:40:50.234222412Z [inf]  2026-03-05T10:40:50.232Z  INFO 1 --- [ThesisRepo] [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 5483 ms
+2026-03-05T10:40:52.001304086Z [inf]  2026-03-05T10:40:51.955Z  INFO 1 --- [ThesisRepo] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-03-05T10:40:53.075641862Z [inf]  2026-03-05T10:40:53.070Z  WARN 1 --- [ThesisRepo] [           main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Failed to initialize dependency 'flywayInitializer' of LoadTimeWeaverAware bean 'entityManagerFactory': Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Unable to obtain connection from database: Connection to 127.0.0.1:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+2026-03-05T10:40:53.075648242Z [inf]  --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2026-03-05T10:40:53.075657622Z [inf]  SQL State  : 08001
+2026-03-05T10:40:53.075663652Z [inf]  Error Code : 0
+2026-03-05T10:40:53.075670972Z [inf]  Message    : Connection to 127.0.0.1:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+2026-03-05T10:40:53.075678152Z [inf]  
+2026-03-05T10:40:53.078101414Z [inf]  2026-03-05T10:40:53.075Z  INFO 1 --- [ThesisRepo] [           main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2026-03-05T10:40:53.092378011Z [inf]  2026-03-05T10:40:53.088Z  INFO 1 --- [ThesisRepo] [           main] .s.b.a.l.ConditionEvaluationReportLogger : 
+2026-03-05T10:40:53.092382981Z [inf]  
+2026-03-05T10:40:53.092387361Z [inf]  Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2026-03-05T10:40:53.149221537Z [inf]  2026-03-05T10:40:53.104Z ERROR 1 --- [ThesisRepo] [           main] o.s.boot.SpringApplication               : Application run failed
+2026-03-05T10:40:53.149225157Z [inf]  
+2026-03-05T10:40:53.149228407Z [inf]  org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Failed to initialize dependency 'flywayInitializer' of LoadTimeWeaverAware bean 'entityManagerFactory': Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Unable to obtain connection from database: Connection to 127.0.0.1:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+2026-03-05T10:40:53.149231647Z [inf]  --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2026-03-05T10:40:53.149235427Z [inf]  SQL State  : 08001
+2026-03-05T10:40:53.149238107Z [inf]  Error Code : 0
+2026-03-05T10:40:53.149240687Z [inf]  Message    : Connection to 127.0.0.1:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+2026-03-05T10:40:53.149243267Z [inf]  
+2026-03-05T10:40:53.149255197Z [inf]  	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:328) ~[spring-beans-6.2.11.jar!/:6.2.11]
+2026-03-05T10:40:53.149258697Z [inf]  	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:207) ~[spring-beans-6.2.11.jar!/:6.2.11]
+2026-03-05T10:40:53.149261347Z [inf]  	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:970) ~[spring-context-6.2.11.jar!/:6.2.11]
+2026-03-05T10:40:53.150210020Z [inf]  	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627) ~[spring-context-6.2.11.jar!/:6.2.11]
+2026-03-05T10:40:53.150214430Z [inf]  	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.5.6.jar!/:3.5.6]
+2026-03-05T10:40:53.150217640Z [inf]  	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752) ~[spring-boot-3.5.6.jar!/:3.5.6]
+2026-03-05T10:40:53.150220590Z [inf]  	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439) ~[spring-boot-3.5.6.jar!/:3.5.6]
+2026-03-05T10:40:53.150226090Z [inf]  	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318) ~[spring-boot-3.5.6.jar!/:3.5.6]
+2026-03-05T10:40:53.150229380Z [inf]  	at com.example.thesisrepo.ThesisRepoApplication.main(ThesisRepoApplication.java:16) ~[!/:0.0.1-SNAPSHOT]
+2026-03-05T10:40:53.150231940Z [inf]  	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+2026-03-05T10:40:53.150234960Z [inf]  	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[na:na]
+2026-03-05T10:40:53.150237770Z [inf]  	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[na:na]
+2026-03-05T10:40:53.150240800Z [inf]  	at java.base/java.lang.reflect.Method.invoke(Unknown Source) ~[na:na]
+2026-03-05T10:40:53.150243330Z [inf]  	at org.springframework.boot.loader.launch.Launcher.launch(Launcher.java:102) ~[app.jar:0.0.1-SNAPSHOT]
+2026-03-05T10:40:53.150246150Z [inf]  	at org.springframework.boot.loader.launch.Launcher.launch(Launcher.java:64) ~[app.jar:0.0.1-SNAPSHOT]
+2026-03-05T10:40:53.150249440Z [inf]  	at org.springframework.boot.loader.launch.JarLauncher.main(JarLauncher.java:40) ~[app.jar:0.0.1-SNAPSHOT]
+2026-03-05T10:40:53.150253930Z [inf]  Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Unable to obtain connection from database: Connection to 127.0.0.1:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+2026-03-05T10:40:53.151621290Z [inf]  --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2026-03-05T10:40:53.151625110Z [inf]  SQL State  : 08001
+2026-03-05T10:40:53.151628600Z [inf]  Error Code : 0
+2026-03-05T10:40:53.151631180Z [inf]  Message    : Connection to 127.0.0.1:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+2026-03-05T10:40:53.151633850Z [inf]  
+2026-03-05T10:40:53.151636380Z [inf]  	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1826) ~[spring-beans-6.2.11.jar!/:6.2.11]
+2026-03-05T10:40:53.151639290Z [inf]  	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:607) ~[spring-beans-6.2.11.jar!/:6.2.11]
+2026-03-05T10:40:53.151642290Z [inf]  	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.11.jar!/:6.2.11]
+2026-03-05T10:40:53.151645809Z [inf]  	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.11.jar!/:6.2.11]
+2026-03-05T10:40:53.151648419Z [inf]  	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.11.jar!/:6.2.11]
+2026-03-05T10:40:53.151651119Z [inf]  	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.11.jar!/:6.2.11]
+2026-03-05T10:40:53.151653769Z [inf]  	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-6.2.11.jar!/:6.2.11]
+2026-03-05T10:40:53.151656939Z [inf]  	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:315) ~[spring-beans-6.2.11.jar!/:6.2.11]
+2026-03-05T10:40:53.153425917Z [inf]  	... 15 common frames omitted
+2026-03-05T10:40:53.153441077Z [inf]  Caused by: org.flywaydb.core.internal.exception.FlywaySqlException: Unable to obtain connection from database: Connection to 127.0.0.1:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+2026-03-05T10:40:53.153446667Z [inf]  --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2026-03-05T10:40:53.153452157Z [inf]  SQL State  : 08001
+2026-03-05T10:40:53.153455657Z [inf]  Error Code : 0
+2026-03-05T10:40:53.153462437Z [inf]  Message    : Connection to 127.0.0.1:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+2026-03-05T10:40:53.153467107Z [inf]  
+2026-03-05T10:40:53.153471467Z [inf]  	at org.flywaydb.core.internal.jdbc.JdbcUtils.openConnection(JdbcUtils.java:71) ~[flyway-core-11.7.2.jar!/:na]
+2026-03-05T10:40:53.153475737Z [inf]  	at org.flywaydb.core.internal.jdbc.JdbcConnectionFactory.<init>(JdbcConnectionFactory.java:76) ~[flyway-core-11.7.2.jar!/:na]
+2026-03-05T10:40:53.153480057Z [inf]  	at org.flywaydb.core.FlywayExecutor.execute(FlywayExecutor.java:136) ~[flyway-core-11.7.2.jar!/:na]
+2026-03-05T10:40:53.153483987Z [inf]  	at org.flywaydb.core.Flyway.migrate(Flyway.java:188) ~[flyway-core-11.7.2.jar!/:na]
+2026-03-05T10:40:53.153487327Z [inf]  	at org.springframework.boot.autoconfigure.flyway.FlywayMigrationInitializer.afterPropertiesSet(FlywayMigrationInitializer.java:66) ~[spring-boot-autoconfigure-3.5.6.jar!/:3.5.6]
+2026-03-05T10:40:53.153490347Z [inf]  	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1873) ~[spring-beans-6.2.11.jar!/:6.2.11]
+2026-03-05T10:40:53.153493867Z [inf]  	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1822) ~[spring-beans-6.2.11.jar!/:6.2.11]
+2026-03-05T10:40:53.154587589Z [inf]  	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:576) ~[HikariCP-6.3.3.jar!/:na]
+2026-03-05T10:40:53.154596739Z [inf]  	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:97) ~[HikariCP-6.3.3.jar!/:na]
+2026-03-05T10:40:53.154597969Z [inf]  	... 22 common frames omitted
+2026-03-05T10:40:53.154603559Z [inf]  	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:111) ~[HikariCP-6.3.3.jar!/:na]
+2026-03-05T10:40:53.154608709Z [inf]  Caused by: org.postgresql.util.PSQLException: Connection to 127.0.0.1:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+2026-03-05T10:40:53.154613079Z [inf]  	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:373) ~[postgresql-42.7.7.jar!/:42.7.7]
+2026-03-05T10:40:53.154616969Z [inf]  	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:57) ~[postgresql-42.7.7.jar!/:42.7.7]
+2026-03-05T10:40:53.154621139Z [inf]  	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:277) ~[postgresql-42.7.7.jar!/:42.7.7]
+2026-03-05T10:40:53.154625769Z [inf]  	at org.postgresql.Driver.makeConnection(Driver.java:448) ~[postgresql-42.7.7.jar!/:42.7.7]
+2026-03-05T10:40:53.154629279Z [inf]  	at org.postgresql.Driver.connect(Driver.java:298) ~[postgresql-42.7.7.jar!/:42.7.7]
+2026-03-05T10:40:53.154632659Z [inf]  	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:144) ~[HikariCP-6.3.3.jar!/:na]
+2026-03-05T10:40:53.154637589Z [inf]  	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:370) ~[HikariCP-6.3.3.jar!/:na]
+2026-03-05T10:40:53.154641128Z [inf]  	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:207) ~[HikariCP-6.3.3.jar!/:na]
+2026-03-05T10:40:53.154644808Z [inf]  	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:488) ~[HikariCP-6.3.3.jar!/:na]
+2026-03-05T10:40:53.156299636Z [inf]  	at org.flywaydb.core.internal.jdbc.JdbcUtils.openConnection(JdbcUtils.java:59) ~[flyway-core-11.7.2.jar!/:na]
+2026-03-05T10:40:53.156306306Z [inf]  	... 28 common frames omitted
+2026-03-05T10:40:53.156313006Z [inf]  Caused by: java.net.ConnectException: Connection refused
+2026-03-05T10:40:53.156316346Z [inf]  	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+2026-03-05T10:40:53.156319746Z [inf]  	at java.base/sun.nio.ch.Net.pollConnectNow(Unknown Source) ~[na:na]
+2026-03-05T10:40:53.156323146Z [inf]  	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(Unknown Source) ~[na:na]
+2026-03-05T10:40:53.156326396Z [inf]  	at java.base/sun.nio.ch.NioSocketImpl.connect(Unknown Source) ~[na:na]
+2026-03-05T10:40:53.156329956Z [inf]  	at java.base/java.net.SocksSocketImpl.connect(Unknown Source) ~[na:na]
+2026-03-05T10:40:53.156333436Z [inf]  	at java.base/java.net.Socket.connect(Unknown Source) ~[na:na]
+2026-03-05T10:40:53.156338096Z [inf]  	at org.postgresql.core.PGStream.createSocket(PGStream.java:261) ~[postgresql-42.7.7.jar!/:42.7.7]
+2026-03-05T10:40:53.156342236Z [inf]  	at org.postgresql.core.PGStream.<init>(PGStream.java:122) ~[postgresql-42.7.7.jar!/:42.7.7]
+2026-03-05T10:40:53.156345736Z [inf]  	at org.postgresql.core.v3.ConnectionFactoryImpl.tryConnect(ConnectionFactoryImpl.java:146) ~[postgresql-42.7.7.jar!/:42.7.7]
+2026-03-05T10:40:53.156349056Z [inf]  	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:289) ~[postgresql-42.7.7.jar!/:42.7.7]
+2026-03-05T10:40:53.156352216Z [inf]  	... 40 common frames omitted
+2026-03-05T10:40:53.156355196Z [inf]  
+2026-03-05T10:40:56.079439490Z [inf]  
+2026-03-05T10:40:56.079443290Z [inf]    .   ____          _            __ _ _
+2026-03-05T10:40:56.079447150Z [inf]   /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+2026-03-05T10:40:56.079451920Z [inf]  ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+2026-03-05T10:40:56.079456340Z [inf]   \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+2026-03-05T10:40:56.079462000Z [inf]    '  |____| .__|_| |_|_| |_\__, | / / / /
+2026-03-05T10:40:56.079473240Z [inf]   =========|_|==============|___/=/_/_/_/
+2026-03-05T10:40:56.079473600Z [inf]  
+2026-03-05T10:40:56.079479760Z [inf]   :: Spring Boot ::                (v3.5.6)
+2026-03-05T10:40:56.079483480Z [inf]  
+2026-03-05T10:40:56.121659534Z [inf]  2026-03-05T10:40:56.112Z  INFO 1 --- [ThesisRepo] [           main] c.e.t.config.PostgresPreflightCheck      : Skipping Postgres preflight check (cloud/Railway deployment detected)
+2026-03-05T10:40:56.121663804Z [inf]  2026-03-05T10:40:56.118Z  INFO 1 --- [ThesisRepo] [           main] c.e.thesisrepo.ThesisRepoApplication     : Starting ThesisRepoApplication v0.0.1-SNAPSHOT using Java 17.0.18 with PID 1 (/app/app.jar started by root in /app)
+2026-03-05T10:40:56.121667484Z [inf]  2026-03-05T10:40:56.119Z  INFO 1 --- [ThesisRepo] [           main] c.e.thesisrepo.ThesisRepoApplication     : The following 1 profile is active: "aad"
+2026-03-05T10:40:58.062787482Z [inf]  2026-03-05T10:40:58.037Z  INFO 1 --- [ThesisRepo] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-03-05T10:40:58.281286775Z [inf]  2026-03-05T10:40:58.276Z  INFO 1 --- [ThesisRepo] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 230 ms. Found 18 JPA repository interfaces.
+2026-03-05T10:41:01.064732213Z [inf]  2026-03-05T10:41:01.009Z  INFO 1 --- [ThesisRepo] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2026-03-05T10:41:01.107711950Z [inf]  2026-03-05T10:41:01.105Z  INFO 1 --- [ThesisRepo] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-03-05T10:41:01.107718390Z [inf]  2026-03-05T10:41:01.105Z  INFO 1 --- [ThesisRepo] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.46]
+2026-03-05T10:41:01.224530061Z [inf]  2026-03-05T10:41:01.219Z  INFO 1 --- [ThesisRepo] [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-03-05T10:41:01.224537031Z [inf]  2026-03-05T10:41:01.221Z  INFO 1 --- [ThesisRepo] [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 4914 ms
+2026-03-05T10:41:03.210186255Z [inf]  2026-03-05T10:41:03.206Z  INFO 1 --- [ThesisRepo] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-03-05T10:41:04.413363323Z [inf]  2026-03-05T10:41:04.411Z  WARN 1 --- [ThesisRepo] [           main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Failed to initialize dependency 'flywayInitializer' of LoadTimeWeaverAware bean 'entityManagerFactory': Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Unable to obtain connection from database: Connection to 127.0.0.1:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+2026-03-05T10:41:04.413373512Z [inf]  --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2026-03-05T10:41:04.413380312Z [inf]  SQL State  : 08001
+2026-03-05T10:41:04.413385232Z [inf]  Error Code : 0
+2026-03-05T10:41:04.413391032Z [inf]  Message    : Connection to 127.0.0.1:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+2026-03-05T10:41:04.413396432Z [inf]  
+2026-03-05T10:41:04.422026750Z [inf]  2026-03-05T10:41:04.415Z  INFO 1 --- [ThesisRepo] [           main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2026-03-05T10:41:04.429493955Z [inf]  2026-03-05T10:41:04.425Z  INFO 1 --- [ThesisRepo] [           main] .s.b.a.l.ConditionEvaluationReportLogger : 
+2026-03-05T10:41:04.429499105Z [inf]  
+2026-03-05T10:41:04.429502435Z [inf]  Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2026-03-05T10:41:04.444571636Z [inf]  2026-03-05T10:41:04.436Z ERROR 1 --- [ThesisRepo] [           main] o.s.boot.SpringApplication               : Application run failed
+2026-03-05T10:41:04.444579156Z [inf]  
+2026-03-05T10:41:04.444582826Z [inf]  org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Failed to initialize dependency 'flywayInitializer' of LoadTimeWeaverAware bean 'entityManagerFactory': Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Unable to obtain connection from database: Connection to 127.0.0.1:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+2026-03-05T10:41:04.444585756Z [inf]  --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2026-03-05T10:41:04.444588416Z [inf]  SQL State  : 08001
+2026-03-05T10:41:04.444592236Z [inf]  Error Code : 0
+2026-03-05T10:41:04.444596556Z [inf]  Message    : Connection to 127.0.0.1:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+2026-03-05T10:41:04.444599746Z [inf]  
+2026-03-05T10:41:04.444602315Z [inf]  	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:328) ~[spring-beans-6.2.11.jar!/:6.2.11]
+2026-03-05T10:41:04.444606945Z [inf]  	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:207) ~[spring-beans-6.2.11.jar!/:6.2.11]
+2026-03-05T10:41:04.444610005Z [inf]  	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:970) ~[spring-context-6.2.11.jar!/:6.2.11]
+2026-03-05T10:41:04.446980768Z [inf]  	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627) ~[spring-context-6.2.11.jar!/:6.2.11]
+2026-03-05T10:41:04.446983738Z [inf]  	at org.springframework.boot.loader.launch.Launcher.launch(Launcher.java:64) ~[app.jar:0.0.1-SNAPSHOT]
+2026-03-05T10:41:04.446988988Z [inf]  	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.5.6.jar!/:3.5.6]
+2026-03-05T10:41:04.446993138Z [inf]  	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752) ~[spring-boot-3.5.6.jar!/:3.5.6]
+2026-03-05T10:41:04.446998478Z [inf]  	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439) ~[spring-boot-3.5.6.jar!/:3.5.6]
+2026-03-05T10:41:04.446999578Z [inf]  	at org.springframework.boot.loader.launch.JarLauncher.main(JarLauncher.java:40) ~[app.jar:0.0.1-SNAPSHOT]
+2026-03-05T10:41:04.447007628Z [inf]  	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318) ~[spring-boot-3.5.6.jar!/:3.5.6]
+2026-03-05T10:41:04.447009388Z [inf]  Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Unable to obtain connection from database: Connection to 127.0.0.1:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+2026-03-05T10:41:04.447012708Z [inf]  	at com.example.thesisrepo.ThesisRepoApplication.main(ThesisRepoApplication.java:16) ~[!/:0.0.1-SNAPSHOT]
+2026-03-05T10:41:04.447015308Z [inf]  	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+2026-03-05T10:41:04.447018268Z [inf]  	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[na:na]
+2026-03-05T10:41:04.447021348Z [inf]  	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[na:na]
+2026-03-05T10:41:04.447024438Z [inf]  	at java.base/java.lang.reflect.Method.invoke(Unknown Source) ~[na:na]
+2026-03-05T10:41:04.447028288Z [inf]  	at org.springframework.boot.loader.launch.Launcher.launch(Launcher.java:102) ~[app.jar:0.0.1-SNAPSHOT]
+2026-03-05T10:41:04.448371198Z [inf]  --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2026-03-05T10:41:04.448383718Z [inf]  SQL State  : 08001
+2026-03-05T10:41:04.448390398Z [inf]  Error Code : 0
+2026-03-05T10:41:04.448396148Z [inf]  Message    : Connection to 127.0.0.1:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+2026-03-05T10:41:04.448403458Z [inf]  
+2026-03-05T10:41:04.448408408Z [inf]  	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1826) ~[spring-beans-6.2.11.jar!/:6.2.11]
+2026-03-05T10:41:04.448413548Z [inf]  	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:607) ~[spring-beans-6.2.11.jar!/:6.2.11]
+2026-03-05T10:41:04.448418298Z [inf]  	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.11.jar!/:6.2.11]
+2026-03-05T10:41:04.448423118Z [inf]  	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.11.jar!/:6.2.11]
+2026-03-05T10:41:04.448427958Z [inf]  	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.11.jar!/:6.2.11]
+2026-03-05T10:41:04.448432888Z [inf]  	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.11.jar!/:6.2.11]
+2026-03-05T10:41:04.448437558Z [inf]  	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-6.2.11.jar!/:6.2.11]
+2026-03-05T10:41:04.448442788Z [inf]  	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:315) ~[spring-beans-6.2.11.jar!/:6.2.11]
+2026-03-05T10:41:04.450242604Z [inf]  	... 15 common frames omitted
+2026-03-05T10:41:04.450302294Z [inf]  Caused by: org.flywaydb.core.internal.exception.FlywaySqlException: Unable to obtain connection from database: Connection to 127.0.0.1:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+2026-03-05T10:41:04.450305784Z [inf]  --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2026-03-05T10:41:04.450308904Z [inf]  SQL State  : 08001
+2026-03-05T10:41:04.450311744Z [inf]  Error Code : 0
+2026-03-05T10:41:04.450315934Z [inf]  Message    : Connection to 127.0.0.1:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+2026-03-05T10:41:04.450319224Z [inf]  
+2026-03-05T10:41:04.450322384Z [inf]  	at org.flywaydb.core.internal.jdbc.JdbcUtils.openConnection(JdbcUtils.java:71) ~[flyway-core-11.7.2.jar!/:na]
+2026-03-05T10:41:04.450325324Z [inf]  	at org.flywaydb.core.internal.jdbc.JdbcConnectionFactory.<init>(JdbcConnectionFactory.java:76) ~[flyway-core-11.7.2.jar!/:na]
+2026-03-05T10:41:04.450328194Z [inf]  	at org.flywaydb.core.FlywayExecutor.execute(FlywayExecutor.java:136) ~[flyway-core-11.7.2.jar!/:na]
+2026-03-05T10:41:04.450330714Z [inf]  	at org.flywaydb.core.Flyway.migrate(Flyway.java:188) ~[flyway-core-11.7.2.jar!/:na]
+2026-03-05T10:41:04.450333684Z [inf]  	at org.springframework.boot.autoconfigure.flyway.FlywayMigrationInitializer.afterPropertiesSet(FlywayMigrationInitializer.java:66) ~[spring-boot-autoconfigure-3.5.6.jar!/:3.5.6]
+2026-03-05T10:41:04.450337505Z [inf]  	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1873) ~[spring-beans-6.2.11.jar!/:6.2.11]
+2026-03-05T10:41:04.450340315Z [inf]  	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1822) ~[spring-beans-6.2.11.jar!/:6.2.11]
+2026-03-05T10:41:04.452308640Z [inf]  	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:111) ~[HikariCP-6.3.3.jar!/:na]
+2026-03-05T10:41:04.452336409Z [inf]  	... 22 common frames omitted
+2026-03-05T10:41:04.452344489Z [inf]  Caused by: org.postgresql.util.PSQLException: Connection to 127.0.0.1:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+2026-03-05T10:41:04.452349679Z [inf]  	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:373) ~[postgresql-42.7.7.jar!/:42.7.7]
+2026-03-05T10:41:04.452353689Z [inf]  	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:57) ~[postgresql-42.7.7.jar!/:42.7.7]
+2026-03-05T10:41:04.452357369Z [inf]  	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:277) ~[postgresql-42.7.7.jar!/:42.7.7]
+2026-03-05T10:41:04.452361569Z [inf]  	at org.postgresql.Driver.makeConnection(Driver.java:448) ~[postgresql-42.7.7.jar!/:42.7.7]
+2026-03-05T10:41:04.452366749Z [inf]  	at org.postgresql.Driver.connect(Driver.java:298) ~[postgresql-42.7.7.jar!/:42.7.7]
+2026-03-05T10:41:04.452371409Z [inf]  	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:144) ~[HikariCP-6.3.3.jar!/:na]
+2026-03-05T10:41:04.452375889Z [inf]  	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:370) ~[HikariCP-6.3.3.jar!/:na]
+2026-03-05T10:41:04.452380469Z [inf]  	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:207) ~[HikariCP-6.3.3.jar!/:na]
+2026-03-05T10:41:04.452384809Z [inf]  	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:488) ~[HikariCP-6.3.3.jar!/:na]
+2026-03-05T10:41:04.452388859Z [inf]  	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:576) ~[HikariCP-6.3.3.jar!/:na]
+2026-03-05T10:41:04.452392849Z [inf]  	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:97) ~[HikariCP-6.3.3.jar!/:na]
+2026-03-05T10:41:04.454900101Z [inf]  	at org.flywaydb.core.internal.jdbc.JdbcUtils.openConnection(JdbcUtils.java:59) ~[flyway-core-11.7.2.jar!/:na]
+2026-03-05T10:41:04.454906691Z [inf]  	... 28 common frames omitted
+2026-03-05T10:41:04.454911901Z [inf]  Caused by: java.net.ConnectException: Connection refused
+2026-03-05T10:41:04.454916381Z [inf]  	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+2026-03-05T10:41:04.454921261Z [inf]  	at java.base/sun.nio.ch.Net.pollConnectNow(Unknown Source) ~[na:na]
+2026-03-05T10:41:04.454925031Z [inf]  	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(Unknown Source) ~[na:na]
+2026-03-05T10:41:04.454929051Z [inf]  	at java.base/sun.nio.ch.NioSocketImpl.connect(Unknown Source) ~[na:na]
+2026-03-05T10:41:04.454932441Z [inf]  	at java.base/java.net.SocksSocketImpl.connect(Unknown Source) ~[na:na]
+2026-03-05T10:41:04.454936460Z [inf]  	at java.base/java.net.Socket.connect(Unknown Source) ~[na:na]
+2026-03-05T10:41:04.454940630Z [inf]  	at org.postgresql.core.PGStream.createSocket(PGStream.java:261) ~[postgresql-42.7.7.jar!/:42.7.7]
+2026-03-05T10:41:04.454944740Z [inf]  	at org.postgresql.core.PGStream.<init>(PGStream.java:122) ~[postgresql-42.7.7.jar!/:42.7.7]
+2026-03-05T10:41:04.454948420Z [inf]  	at org.postgresql.core.v3.ConnectionFactoryImpl.tryConnect(ConnectionFactoryImpl.java:146) ~[postgresql-42.7.7.jar!/:42.7.7]
+2026-03-05T10:41:04.454951740Z [inf]  	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:289) ~[postgresql-42.7.7.jar!/:42.7.7]
+2026-03-05T10:41:04.454955150Z [inf]  	... 40 common frames omitted
+2026-03-05T10:41:04.454959400Z [inf]  
