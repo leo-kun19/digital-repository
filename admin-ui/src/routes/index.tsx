@@ -51,7 +51,7 @@ export function AppRoutes() {
       <Route path="/repo/:id" element={<RepositoryDetail />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/register" element={<RegisterPage />} />
-      <Route path="/verify-email" element={user ? <VerifyEmailPage /> : <Navigate to="/login" replace />} />
+      <Route path="/verify-email" element={loading ? <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>Loading...</div> : user ? <VerifyEmailPage /> : <Navigate to="/login" replace />} />
       <Route path="/onboarding" element={<ProtectedRoute user={user} loading={loading}><OnboardingPage /></ProtectedRoute>} />
 
       <Route path="/student/dashboard" element={<ProtectedRoute user={user} loading={loading}><RoleGuard user={user} allowedRoles={['STUDENT']}><StudentDashboardPage /></RoleGuard></ProtectedRoute>} />
