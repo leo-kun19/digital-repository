@@ -1,6 +1,7 @@
 package com.example.thesisrepo.service;
 
 import com.example.thesisrepo.user.User;
+import java.util.Locale;
 import com.example.thesisrepo.user.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.Authentication;
@@ -21,7 +22,8 @@ public class CurrentUserService {
     if (auth == null || auth.getName() == null) {
       throw new IllegalStateException("No authenticated user");
     }
-    return users.findByEmail(auth.getName())
-      .orElseThrow(() -> new IllegalStateException("User not found: " + auth.getName()));
+    String email = auth.getName().toLowerCase(Locale.ROOT);
+    return users.findByEmail(email)
+      .orElseThrow(() -> new IllegalStateException("User not found: " + email));
   }
 }

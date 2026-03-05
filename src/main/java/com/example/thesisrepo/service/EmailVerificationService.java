@@ -73,17 +73,19 @@ public class EmailVerificationService {
       .orElse(null);
 
     if (token == null) {
-      log.warn("No pending OTP found for user {}", user.getEmail());
+      log.warn("No pending OTP found for user {} (id={})", user.getEmail(), user.getId());
       return false;
     }
 
     if (token.isExpired()) {
-      log.warn("OTP expired for user {}", user.getEmail());
+      log.warn("OTP expired for user {} (created={}, expires={}, now={})",
+        user.getEmail(), token.getCreatedAt(), token.getExpiresAt(), Instant.now());
       return false;
     }
 
     if (!token.getOtpCode().equals(trimmed)) {
-      log.warn("OTP mismatch for user {}", user.getEmail());
+      log.warn("OTP mismatch for user {}: submitted='{}' stored='{}' (len: {} vs {})",
+        user.getEmail(), trimmed, token.getOtpCode(), trimmed.length(), token.getOtpCode().length());
       return false;
     }
 

@@ -112,11 +112,17 @@ public class AuthController {
   @PreAuthorize("isAuthenticated()")
   public ResponseEntity<?> sendOtp() {
     User user = currentUserService.requireCurrentUser();
-    emailVerificationService.generateAndSendOtp(user);
-    return ResponseEntity.ok(Map.of(
-      "message", "Verification code sent to " + maskEmail(user.getEmail()),
-      "email", maskEmail(user.getEmail())
-    ));
+    try {
+      emailVerificationService.generateAndSendOtp(user);
+      return ResponseEntity.ok(Map.of(
+        "message", "Verification code sent to " + maskEmail(user.getEmail()),
+        "email", maskEmail(user.getEmail())
+      ));
+    } catch (Exception e) {
+      return ResponseEntity.internalServerError().body(Map.of(
+        "error", "Failed to send verification email. Please try again later."
+      ));
+    }
   }
 
   @PostMapping("/verify-otp")
