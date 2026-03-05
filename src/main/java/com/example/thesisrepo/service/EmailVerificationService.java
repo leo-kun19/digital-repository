@@ -31,12 +31,16 @@ public class EmailVerificationService {
   @Value("${app.email.otp-length:6}")
   private int otpLength;
   /**
+   * Result of OTP generation — carries the code and whether email was sent.
+   */
+  public record OtpResult(String otpCode, boolean emailSent) {}
+
+  /**
    * Generate a new OTP, save it, and attempt to send via email.
-   * Email is sent inside try-catch so the transaction commits (OTP saved)
-   * even if email delivery fails.
+   * Returns OtpResult so callers know if email delivery succeeded.
    */
   @Transactional
-  public void generateAndSendOtp(User user) {
+  public OtpResult generateAndSendOtp(User user) {
     // Invalidate old tokens
     tokenRepository.deleteAllByUserId(user.getId());
 
@@ -56,11 +60,14 @@ public class EmailVerificationService {
     log.info("Generated and saved OTP for user {} (id={}, otp={})", user.getEmail(), user.getId(), otpCode);
 
     // Send email — caught so transaction still commits with the saved OTP
+    boolean emailSent = false;
     try {
       emailService.sendOtpEmail(user.getEmail(), otpCode, otpExpiryMinutes);
+      emailSent = true;
     } catch (Exception e) {
       log.error("Email sending failed for user {} but OTP is saved in DB. OTP: {}", user.getEmail(), otpCode, e);
     }
+    return new OtpResult(otpCode, emailSent);
   }
 
   /**

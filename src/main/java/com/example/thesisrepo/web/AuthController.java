@@ -113,14 +113,23 @@ public class AuthController {
   public ResponseEntity<?> sendOtp() {
     User user = currentUserService.requireCurrentUser();
     try {
-      emailVerificationService.generateAndSendOtp(user);
-      return ResponseEntity.ok(Map.of(
-        "message", "Verification code sent to " + maskEmail(user.getEmail()),
-        "email", maskEmail(user.getEmail())
-      ));
+      var result = emailVerificationService.generateAndSendOtp(user);
+      if (result.emailSent()) {
+        return ResponseEntity.ok(Map.of(
+          "message", "Verification code sent to " + maskEmail(user.getEmail()),
+          "email", maskEmail(user.getEmail())
+        ));
+      } else {
+        // Email failed (SMTP blocked on Railway) — return OTP directly
+        return ResponseEntity.ok(Map.of(
+          "message", "Email delivery unavailable. Use the code shown below.",
+          "email", maskEmail(user.getEmail()),
+          "fallbackOtp", result.otpCode()
+        ));
+      }
     } catch (Exception e) {
       return ResponseEntity.internalServerError().body(Map.of(
-        "error", "Failed to send verification email. Please try again later."
+        "error", "Failed to generate verification code. Please try again later."
       ));
     }
   }

@@ -62,8 +62,8 @@ export const authApi = {
     return postJson<AuthUser>('/api/auth/onboarding', payload);
   },
 
-  sendOtp(): Promise<{ message: string; email: string }> {
-    return postJson<{ message: string; email: string }>('/api/auth/send-otp');
+  sendOtp(): Promise<{ message: string; email: string; fallbackOtp?: string }> {
+    return postJson<{ message: string; email: string; fallbackOtp?: string }>('/api/auth/send-otp');
   },
 
   verifyOtp(otp: string): Promise<AuthUser> {

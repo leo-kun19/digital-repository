@@ -19,7 +19,9 @@ export default function VerifyEmailPage() {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
     const [success, setSuccess] = useState("");
+    const [fallbackInfo, setFallbackInfo] = useState("");
     const [resendCooldown, setResendCooldown] = useState(0);
+    const [initialSendDone, setInitialSendDone] = useState(false);
     const inputRefs = useRef<(HTMLInputElement | null)[]>([]);
 
     // Redirect if already verified
@@ -52,10 +54,29 @@ export default function VerifyEmailPage() {
         return () => clearInterval(timer);
     }, [resendCooldown]);
 
-    // Focus first input on mount
+    // Auto-send OTP on mount
     useEffect(() => {
-        inputRefs.current[0]?.focus();
-    }, []);
+        if (user && !user.emailVerified && !initialSendDone) {
+            setInitialSendDone(true);
+            authApi.sendOtp().then((result) => {
+                if (result.fallbackOtp) {
+                    // SMTP blocked — auto-fill the OTP
+                    const digits = result.fallbackOtp.split("");
+                    setOtp(digits);
+                    setFallbackInfo("Email delivery is temporarily unavailable. Your verification code has been filled in automatically.");
+                } else {
+                    setSuccess(result.message);
+                    inputRefs.current[0]?.focus();
+                }
+                setResendCooldown(60);
+            }).catch(() => {
+                inputRefs.current[0]?.focus();
+            });
+        } else {
+            inputRefs.current[0]?.focus();
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [user]);
 
     const handleChange = (index: number, value: string) => {
         if (!/^\d*$/.test(value)) return; // Only digits
@@ -130,12 +151,19 @@ export default function VerifyEmailPage() {
         if (resendCooldown > 0) return;
         setError("");
         setSuccess("");
+        setFallbackInfo("");
         try {
             const result = await authApi.sendOtp();
-            setSuccess(result.message);
+            if (result.fallbackOtp) {
+                const digits = result.fallbackOtp.split("");
+                setOtp(digits);
+                setFallbackInfo("Email delivery is temporarily unavailable. Your verification code has been filled in automatically.");
+            } else {
+                setSuccess(result.message);
+                setOtp(["", "", "", "", "", ""]);
+                inputRefs.current[0]?.focus();
+            }
             setResendCooldown(60);
-            setOtp(["", "", "", "", "", ""]);
-            inputRefs.current[0]?.focus();
         } catch (err: unknown) {
             if (err instanceof ApiError) {
                 setError(err.message);
@@ -219,6 +247,12 @@ export default function VerifyEmailPage() {
                 {success && (
                     <div className="alert alert-success py-2 d-flex align-items-center gap-2 mb-3" style={{ borderRadius: "0.6rem" }}>
                         <span>✅</span> {success}
+                    </div>
+                )}
+
+                {fallbackInfo && (
+                    <div className="alert py-2 d-flex align-items-center gap-2 mb-3" style={{ borderRadius: "0.6rem", background: "#e0f2fe", border: "1px solid #7dd3fc", color: "#0c4a6e" }}>
+                        <span>ℹ️</span> {fallbackInfo}
                     </div>
                 )}
 
