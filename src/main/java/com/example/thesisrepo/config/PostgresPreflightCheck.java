@@ -5,7 +5,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContextInitializer;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.core.env.ConfigurableEnvironment;
-import org.springframework.core.env.Profiles;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
@@ -16,6 +15,7 @@ import java.util.regex.Pattern;
 
 /**
  * Fast connectivity check to provide clearer diagnostics than the default JDBC socket errors.
+ * Skipped when RAILWAY_ENVIRONMENT or DATABASE_URL env vars are present (Railway deployment).
  */
 public class PostgresPreflightCheck implements ApplicationContextInitializer<ConfigurableApplicationContext> {
 
@@ -26,15 +26,29 @@ public class PostgresPreflightCheck implements ApplicationContextInitializer<Con
   @Override
   public void initialize(ConfigurableApplicationContext applicationContext) {
     ConfigurableEnvironment environment = applicationContext.getEnvironment();
+
+    // Skip preflight check on Railway or any cloud deployment
+    String railwayEnv = System.getenv("RAILWAY_ENVIRONMENT");
+    String databaseUrl = System.getenv("DATABASE_URL");
+    String dbUrl = System.getenv("DB_URL");
+    if (railwayEnv != null || databaseUrl != null || (dbUrl != null && !dbUrl.contains("127.0.0.1"))) {
+      log.info("Skipping Postgres preflight check (cloud/Railway deployment detected)");
+      return;
+    }
+
     String datasourceUrl = environment.getProperty("spring.datasource.url", "");
     if (!isPostgresDatasource(datasourceUrl)) {
       return;
     }
-    if (environment.acceptsProfiles(Profiles.of("dev"))) {
+
+    Target target = parseTarget(datasourceUrl);
+
+    // Only check local connections
+    if (!target.host().equals("127.0.0.1") && !target.host().equals("localhost")) {
+      log.info("Skipping Postgres preflight for remote host: {}:{}", target.host(), target.port());
       return;
     }
 
-    Target target = parseTarget(datasourceUrl);
     if (canConnect(target.host(), target.port(), 1200)) {
       log.info("Postgres preflight passed for {}:{} (database: {})", target.host(), target.port(), target.database());
       return;
