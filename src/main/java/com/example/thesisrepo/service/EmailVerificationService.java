@@ -33,9 +33,22 @@ public class EmailVerificationService {
 
   /**
    * Generate a new OTP, save it, and send via email.
+   * Token is saved in its own transaction FIRST, then email is sent separately.
+   * If email fails, the OTP is still in the database.
    */
-  @Transactional
   public void generateAndSendOtp(User user) {
+    String otpCode = saveNewOtp(user);
+    // Send email OUTSIDE the transaction — if this fails, OTP is still saved
+    try {
+      emailService.sendOtpEmail(user.getEmail(), otpCode, otpExpiryMinutes);
+    } catch (Exception e) {
+      log.error("Email sending failed for user {} but OTP is saved in DB. OTP: {}", user.getEmail(), otpCode, e);
+      // OTP is still in the database, user can still verify if they receive it
+    }
+  }
+
+  @Transactional
+  public String saveNewOtp(User user) {
     // Invalidate old tokens
     tokenRepository.deleteAllByUserId(user.getId());
 
@@ -52,9 +65,8 @@ public class EmailVerificationService {
       .build();
 
     tokenRepository.save(token);
-    log.info("Generated OTP for user {} (id={})", user.getEmail(), user.getId());
-
-    emailService.sendOtpEmail(user.getEmail(), otpCode, otpExpiryMinutes);
+    log.info("Generated and saved OTP for user {} (id={}, otp={})", user.getEmail(), user.getId(), otpCode);
+    return otpCode;
   }
 
   /**
