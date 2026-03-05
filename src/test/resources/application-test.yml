@@ -1,0 +1,38 @@
+spring:
+  datasource:
+    url: jdbc:hsqldb:mem:thesisrepo;sql.syntax_pgs=true;sql.lowercase_ident=true
+    driver-class-name: org.hsqldb.jdbc.JDBCDriver
+    username: sa
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.HSQLDialect
+  flyway:
+    enabled: false
+  sql:
+    init:
+      mode: never
+  test:
+    context:
+      default-execution-listeners:
+        - org.springframework.test.context.web.ServletTestExecutionListener
+        - org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener
+        - org.springframework.test.context.event.ApplicationEventsTestExecutionListener
+        - org.springframework.boot.test.context.SpringBootDependencyInjectionTestExecutionListener
+        - org.springframework.test.context.support.DependencyInjectionTestExecutionListener
+        - org.springframework.test.context.support.DirtiesContextTestExecutionListener
+
+logging:
+  level:
+    org.hibernate.SQL: warn
+
+file:
+  storage-root: /tmp/thesisrepo-test-storage
+  max-size-bytes: 104857600
+
+app:
+  seed:
+    enabled: true

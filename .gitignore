@@ -1,0 +1,49 @@
+HELP.md
+target/
+target/**/*.png
+**/.DS_Store
+.DS_Store
+__MACOSX/
+hs_err_pid*.log
+storage/
+.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+admin-ui/node_modules/
+admin-ui/dist/
+*.zip
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### VS Code ###
+.vscode/
+
+# Local runtime configuration (not committed)
+config/*.env
+!config/*.env.example
+
+# Local runtime data files
+data/

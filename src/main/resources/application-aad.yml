@@ -1,0 +1,21 @@
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          azure:
+            client-id: ${AAD_CLIENT_ID}
+            client-secret: ${AAD_CLIENT_SECRET}
+            scope:
+              - openid
+              - profile
+              - email
+            redirect-uri: ${AAD_REDIRECT_URI:http://localhost:5173/login/oauth2/code/azure}
+
+        provider:
+          azure:
+            issuer-uri: https://login.microsoftonline.com/${AAD_TENANT_ID}/v2.0
+
+app:
+  auth:
+    mode: ${APP_AUTH_MODE:SSO}

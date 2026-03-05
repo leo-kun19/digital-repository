@@ -1,0 +1,8 @@
+ALTER TABLE users
+  ADD COLUMN auth_provider VARCHAR(16) NOT NULL DEFAULT 'LOCAL';
+
+ALTER TABLE users
+  ADD COLUMN external_subject VARCHAR(255);
+
+ALTER TABLE users
+  ADD COLUMN last_login_at TIMESTAMP;

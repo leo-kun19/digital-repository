@@ -1,0 +1,71 @@
+spring:
+  application:
+    name: ThesisRepo
+
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://127.0.0.1:5432/thesis_repo}
+    username: ${DB_USER:thesis_user}
+    password: ${DB_PASS:thesis_pass}
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+
+  flyway:
+    enabled: true
+
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: ${MAIL_USERNAME:melindalouisagunawan@gmail.com}
+    password: ${MAIL_PASSWORD:ilpkhdigqqjoozlk}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+
+  servlet:
+    multipart:
+      max-file-size: 5MB
+      max-request-size: 5MB
+
+server:
+  port: 8080
+  forward-headers-strategy: framework
+
+file:
+  storage:
+    provider: ${FILE_STORAGE_PROVIDER:local}
+  max-size-bytes: 5242880
+
+azure:
+  storage:
+    connection-string: ${AZURE_STORAGE_CONNECTION_STRING:}
+    container: ${AZURE_STORAGE_CONTAINER:thesisrepo}
+    prefix: ${AZURE_STORAGE_PREFIX:documents}
+
+app:
+  ui:
+    base-url: ${APP_UI_BASE_URL:}
+  auth:
+    mode: ${APP_AUTH_MODE:LOCAL}
+    admin-emails: ${ADMIN_EMAILS:}
+  email:
+    from: ${MAIL_FROM:melindalouisagunawan@gmail.com}
+    otp-expiry-minutes: ${OTP_EXPIRY_MINUTES:10}
+    otp-length: 6
+    app-name: FYP Digital Repository
+  supervisors:
+    entries:
+      - email: rafie.djajasoepena@sampoernauniversity.ac.id
+        name: Rafie Djajasoepena
+        faculty: FET
+        study-program: Information Systems
+        active: true
+      - email: wandy.wandy@sampoernauniversity.ac.id
+        name: Wandy Wandy
+        faculty: FET
+        study-program: Information Systems
+        active: true
