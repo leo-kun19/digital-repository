@@ -5,8 +5,6 @@
         "dockerfilePath": "Dockerfile"
     },
     "deploy": {
-        "startCommand": "java -jar app.jar --server.port=$PORT",
-        "healthcheckPath": "/api/auth/config",
         "restartPolicyType": "ON_FAILURE",
         "restartPolicyMaxRetries": 10
     }

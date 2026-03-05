@@ -3,9 +3,9 @@ spring:
     name: ThesisRepo
 
   datasource:
-    url: ${DB_URL:jdbc:postgresql://127.0.0.1:5432/thesis_repo}
-    username: ${DB_USER:thesis_user}
-    password: ${DB_PASS:thesis_pass}
+    url: ${DB_URL:${DATABASE_URL:jdbc:postgresql://127.0.0.1:5432/thesis_repo}}
+    username: ${DB_USER:${PGUSER:thesis_user}}
+    password: ${DB_PASS:${PGPASSWORD:thesis_pass}}
 
   jpa:
     hibernate:
