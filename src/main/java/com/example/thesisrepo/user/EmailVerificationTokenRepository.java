@@ -10,7 +10,7 @@ public interface EmailVerificationTokenRepository extends JpaRepository<EmailVer
 
   Optional<EmailVerificationToken> findTopByUser_IdAndVerifiedFalseOrderByCreatedAtDesc(Long userId);
 
-  @Modifying(clearAutomatically = true, flushAutomatically = true)
+  @Modifying
   @Query("DELETE FROM EmailVerificationToken t WHERE t.user.id = :userId")
   void deleteAllByUserId(Long userId);
 }

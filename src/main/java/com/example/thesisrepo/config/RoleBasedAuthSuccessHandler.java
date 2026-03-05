@@ -50,7 +50,12 @@ public class RoleBasedAuthSuccessHandler implements AuthenticationSuccessHandler
     // Reset email verification for this session and send OTP
     user.setEmailVerified(false);
     users.save(user);
-    emailVerificationService.generateAndSendOtp(user);
+
+    try {
+      emailVerificationService.generateAndSendOtp(user);
+    } catch (Exception e) {
+      log.error("Failed to generate/send OTP for {}: {}", user.getEmail(), e.getMessage(), e);
+    }
 
     // Always redirect to email verification first
     response.sendRedirect(request.getContextPath() + "/verify-email");
