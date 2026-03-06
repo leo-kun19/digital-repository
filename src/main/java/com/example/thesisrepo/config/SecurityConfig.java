@@ -120,17 +120,14 @@ public class SecurityConfig {
         .logoutUrl("/logout")
         .logoutSuccessHandler((request, response, authentication) -> {
           request.getSession().invalidate();
-          // If ?redirect= is specified, go there directly (e.g. Register flow)
+          // If ?redirect= is specified, go there (e.g. Register flow)
           String redirectParam = request.getParameter("redirect");
           if (redirectParam != null && redirectParam.startsWith("/")) {
             response.sendRedirect(redirectParam);
             return;
           }
-          // Otherwise redirect to Microsoft logout to clear SSO session
-          String postLogoutRedirect = URLEncoder.encode(
-            resolveUiRoute("/login"), StandardCharsets.UTF_8);
-          response.sendRedirect(
-            "https://login.microsoftonline.com/common/oauth2/v2.0/logout?post_logout_redirect_uri=" + postLogoutRedirect);
+          // Default: redirect to homepage
+          response.sendRedirect(resolveUiRoute("/"));
         })
         .invalidateHttpSession(true)
         .deleteCookies("JSESSIONID")
