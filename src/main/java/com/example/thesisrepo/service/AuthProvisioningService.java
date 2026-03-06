@@ -61,7 +61,8 @@ public class AuthProvisioningService {
       .lastLoginAt(Instant.now())
       .build()));
 
-    if (inferredRole == Role.ADMIN && user.getRole() != Role.ADMIN) {
+    // Always enforce admin role if email is in admin list
+    if (adminEmails.contains(email) && user.getRole() != Role.ADMIN) {
       user.setRole(Role.ADMIN);
     }
 
