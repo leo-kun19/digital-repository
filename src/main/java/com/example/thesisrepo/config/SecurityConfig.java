@@ -143,15 +143,14 @@ public class SecurityConfig {
     }
 
     if (ssoEnabled && clientRegistrationRepository.getIfAvailable() != null) {
+      var resolver = new org.springframework.security.oauth2.client.web.DefaultOAuth2AuthorizationRequestResolver(
+        clientRegistrationRepository.getIfAvailable(), "/oauth2/authorization");
+      resolver.setAuthorizationRequestCustomizer(customizer ->
+        customizer.additionalParameters(params -> params.put("prompt", "select_account")));
+
       http.oauth2Login(oauth -> oauth
         .loginPage("/login")
-        .authorizationEndpoint(auth -> auth
-          .authorizationRequestResolver(new org.springframework.security.oauth2.client.web.DefaultOAuth2AuthorizationRequestResolver(
-            clientRegistrationRepository.getIfAvailable(), "/oauth2/authorization") {{
-              setAuthorizationRequestCustomizer(customizer -> 
-                customizer.additionalParameters(params -> params.put("prompt", "select_account")));
-          }})
-        )
+        .authorizationEndpoint(auth -> auth.authorizationRequestResolver(resolver))
         .userInfoEndpoint(userInfo -> userInfo.oidcUserService(oidcUserService))
         .successHandler(successHandler)
         .failureHandler(oauthFailureHandler())
