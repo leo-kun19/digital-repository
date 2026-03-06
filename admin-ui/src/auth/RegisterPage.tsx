@@ -1,6 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 
-const SSO_URL = "/oauth2/authorization/azure";
+// Logout first to clear any existing session, then redirect to SSO
+const SSO_URL = "/logout?redirect=/oauth2/authorization/azure";
 
 function RegisterPage() {
   const navigate = useNavigate();

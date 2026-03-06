@@ -119,9 +119,14 @@ public class SecurityConfig {
       .logout(logout -> logout
         .logoutUrl("/logout")
         .logoutSuccessHandler((request, response, authentication) -> {
-          // Clear Spring session
           request.getSession().invalidate();
-          // Redirect to Microsoft logout to clear SSO session
+          // If ?redirect= is specified, go there directly (e.g. Register flow)
+          String redirectParam = request.getParameter("redirect");
+          if (redirectParam != null && redirectParam.startsWith("/")) {
+            response.sendRedirect(redirectParam);
+            return;
+          }
+          // Otherwise redirect to Microsoft logout to clear SSO session
           String postLogoutRedirect = URLEncoder.encode(
             resolveUiRoute("/login"), StandardCharsets.UTF_8);
           response.sendRedirect(
