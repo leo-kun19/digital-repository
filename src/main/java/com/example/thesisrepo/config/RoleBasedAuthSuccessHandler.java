@@ -47,18 +47,17 @@ public class RoleBasedAuthSuccessHandler implements AuthenticationSuccessHandler
       return;
     }
 
-    // Reset email verification for this session and send OTP
-    user.setEmailVerified(false);
+    // OTP disabled — auto-verify after SSO login
+    user.setEmailVerified(true);
     users.save(user);
 
-    try {
-      emailVerificationService.generateAndSendOtp(user);
-    } catch (Exception e) {
-      log.error("Failed to generate/send OTP for {}: {}", user.getEmail(), e.getMessage(), e);
+    // Redirect based on profile completeness and role
+    boolean profileComplete = isProfileComplete(user);
+    if (!profileComplete && user.getRole() != Role.ADMIN) {
+      response.sendRedirect(request.getContextPath() + "/onboarding");
+    } else {
+      response.sendRedirect(request.getContextPath() + "/");
     }
-
-    // Always redirect to email verification first
-    response.sendRedirect(request.getContextPath() + "/verify-email");
   }
 
   private String resolveEmail(Authentication authentication) {
@@ -88,6 +87,16 @@ public class RoleBasedAuthSuccessHandler implements AuthenticationSuccessHandler
       }
     }
     return null;
+  }
+
+  private boolean isProfileComplete(User user) {
+    if (user.getRole() == Role.STUDENT) {
+      return studentProfiles.findByUserId(user.getId()).isPresent();
+    }
+    if (user.getRole() == Role.LECTURER) {
+      return lecturerProfiles.findByUserId(user.getId()).isPresent();
+    }
+    return true; // ADMIN always complete
   }
 
   private static boolean hasText(String value) {

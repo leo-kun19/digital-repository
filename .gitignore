@@ -1,4 +1,5 @@
 HELP.md
+render.env
 target/
 target/**/*.png
 **/.DS_Store
