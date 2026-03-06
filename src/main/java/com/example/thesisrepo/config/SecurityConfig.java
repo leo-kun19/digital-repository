@@ -16,6 +16,7 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.oauth2.client.registration.ClientRegistrationRepository;
+import org.springframework.security.oauth2.core.endpoint.OAuth2AuthorizationRequest;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
@@ -117,7 +118,15 @@ public class SecurityConfig {
       }))
       .logout(logout -> logout
         .logoutUrl("/logout")
-        .logoutSuccessUrl(loginRedirect)
+        .logoutSuccessHandler((request, response, authentication) -> {
+          // Clear Spring session
+          request.getSession().invalidate();
+          // Redirect to Microsoft logout to clear SSO session
+          String postLogoutRedirect = URLEncoder.encode(
+            resolveUiRoute("/login"), StandardCharsets.UTF_8);
+          response.sendRedirect(
+            "https://login.microsoftonline.com/common/oauth2/v2.0/logout?post_logout_redirect_uri=" + postLogoutRedirect);
+        })
         .invalidateHttpSession(true)
         .deleteCookies("JSESSIONID")
         .permitAll()
@@ -136,6 +145,13 @@ public class SecurityConfig {
     if (ssoEnabled && clientRegistrationRepository.getIfAvailable() != null) {
       http.oauth2Login(oauth -> oauth
         .loginPage("/login")
+        .authorizationEndpoint(auth -> auth
+          .authorizationRequestResolver(new org.springframework.security.oauth2.client.web.DefaultOAuth2AuthorizationRequestResolver(
+            clientRegistrationRepository.getIfAvailable(), "/oauth2/authorization") {{
+              setAuthorizationRequestCustomizer(customizer -> 
+                customizer.additionalParameters(params -> params.put("prompt", "select_account")));
+          }})
+        )
         .userInfoEndpoint(userInfo -> userInfo.oidcUserService(oidcUserService))
         .successHandler(successHandler)
         .failureHandler(oauthFailureHandler())
