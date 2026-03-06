@@ -1,10 +1,6 @@
 package com.example.thesisrepo.service;
 
-import com.example.thesisrepo.user.AuthProvider;
-import com.example.thesisrepo.user.Role;
-import com.example.thesisrepo.user.User;
-import com.example.thesisrepo.user.UserRepository;
-import org.springframework.beans.factory.annotation.Value;
+import com.example.thesisrepo.user.*;
 import org.springframework.security.oauth2.core.OAuth2AuthenticationException;
 import org.springframework.security.oauth2.core.OAuth2Error;
 import org.springframework.security.oauth2.core.oidc.user.OidcUser;
@@ -12,36 +8,29 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.time.Instant;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
-import java.util.Set;
 import java.util.UUID;
-import java.util.stream.Collectors;
 
 @Service
 public class AuthProvisioningService {
 
   private final UserRepository users;
+  private final StaffRegistryRepository staffRegistry;
   private final PasswordEncoder passwordEncoder;
-  private final Set<String> adminEmails;
 
   private static final String STUDENT_DOMAIN = "@my.sampoernauniversity.ac.id";
   private static final String STAFF_DOMAIN = "@sampoernauniversity.ac.id";
 
   public AuthProvisioningService(
     UserRepository users,
-    PasswordEncoder passwordEncoder,
-    @Value("${app.auth.admin-emails:}") String adminEmailsConfig
+    StaffRegistryRepository staffRegistry,
+    PasswordEncoder passwordEncoder
   ) {
     this.users = users;
+    this.staffRegistry = staffRegistry;
     this.passwordEncoder = passwordEncoder;
-    this.adminEmails = Arrays.stream(adminEmailsConfig.split(","))
-      .map(String::trim)
-      .map(email -> email.toLowerCase(Locale.ROOT))
-      .filter(email -> !email.isBlank())
-      .collect(Collectors.toUnmodifiableSet());
   }
 
   public ProvisioningResult provision(OidcUser oidcUser) {
@@ -51,7 +40,7 @@ public class AuthProvisioningService {
     }
 
     String email = emailClaim.value().trim().toLowerCase(Locale.ROOT);
-    Role inferredRole = roleFromEmailDomain(email);
+    Role inferredRole = roleFromEmail(email);
     User user = users.findByEmail(email).orElseGet(() -> users.save(User.builder()
       .email(email)
       .role(inferredRole)
@@ -61,9 +50,9 @@ public class AuthProvisioningService {
       .lastLoginAt(Instant.now())
       .build()));
 
-    // Always enforce admin role if email is in admin list
-    if (adminEmails.contains(email) && user.getRole() != Role.ADMIN) {
-      user.setRole(Role.ADMIN);
+    // Always enforce role from staff registry (in case role changed in DB)
+    if (user.getRole() != inferredRole) {
+      user.setRole(inferredRole);
     }
 
     user.setAuthProvider(AuthProvider.AAD);
@@ -74,6 +63,33 @@ public class AuthProvisioningService {
     return new ProvisioningResult(user, emailClaim.key());
   }
 
+  /**
+   * Determine role from email:
+   * 1. Check staff_registry table (for ADMIN or LECTURER)
+   * 2. If not in staff_registry, check domain
+   *    - @my.sampoernauniversity.ac.id → STUDENT
+   *    - @sampoernauniversity.ac.id → LECTURER (default for staff not in registry)
+   *    - other → rejected
+   */
+  private Role roleFromEmail(String email) {
+    // Check staff registry first
+    var staffEntry = staffRegistry.findByEmailIgnoreCase(email);
+    if (staffEntry.isPresent()) {
+      return staffEntry.get().getRole();
+    }
+
+    // Fallback to domain-based role
+    if (email.endsWith(STUDENT_DOMAIN)) {
+      return Role.STUDENT;
+    }
+    if (email.endsWith(STAFF_DOMAIN)) {
+      return Role.LECTURER; // Default for unregistered staff
+    }
+    throw new OAuth2AuthenticationException(
+      new OAuth2Error("domain_not_allowed", "Only university accounts are allowed.", null)
+    );
+  }
+
   private static EmailClaim resolveEmailClaim(Map<String, Object> claims) {
     for (String key : List.of("email", "preferred_username", "upn")) {
       Object value = claims.get(key);
@@ -82,21 +98,6 @@ public class AuthProvisioningService {
       }
     }
     return null;
-  }
-
-  private Role roleFromEmailDomain(String email) {
-    if (adminEmails.contains(email)) {
-      return Role.ADMIN;
-    }
-    if (email.endsWith(STUDENT_DOMAIN)) {
-      return Role.STUDENT;
-    }
-    if (email.endsWith(STAFF_DOMAIN)) {
-      return Role.LECTURER;
-    }
-    throw new OAuth2AuthenticationException(
-      new OAuth2Error("domain_not_allowed", "Only university accounts are allowed.", null)
-    );
   }
 
   public record ProvisioningResult(User user, String nameAttributeKey) {}
