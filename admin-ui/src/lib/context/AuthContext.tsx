@@ -50,14 +50,10 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const logout = useCallback(async () => {
-    try {
-      await authApi.logout();
-    } catch (error) {
-      console.error('Logout failed', error);
-    } finally {
-      setUser(null);
-      window.location.href = '/login';
-    }
+    setUser(null);
+    // Redirect to Spring Security logout — this clears both Spring session
+    // AND Microsoft SSO session (redirects to Microsoft logout endpoint)
+    window.location.href = '/logout';
   }, []);
 
   const value = useMemo(
