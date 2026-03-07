@@ -11,9 +11,8 @@ import com.example.thesisrepo.service.StorageService;
 import com.example.thesisrepo.service.workflow.AuditEventService;
 import com.example.thesisrepo.service.workflow.CaseTimelineService;
 import com.example.thesisrepo.service.workflow.PublicationWorkflowGateService;
-import com.example.thesisrepo.user.Role;
-import com.example.thesisrepo.user.User;
-import com.example.thesisrepo.user.UserRepository;
+import com.example.thesisrepo.user.*;
+
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
@@ -44,11 +43,13 @@ public class StudentController {
   private final LecturerProfileRepository lecturerProfiles;
   private final StudentProfileRepository studentProfiles;
   private final UserRepository users;
+  private final StaffRegistryRepository staffRegistry;
   private final CurrentUserService currentUser;
   private final StorageService storage;
   private final PublicationWorkflowGateService workflowGates;
   private final AuditEventService auditEvents;
   private final CaseTimelineService timelineService;
+  private final org.springframework.security.crypto.password.PasswordEncoder passwordEncoder;
 
   @GetMapping("/cases")
   public List<Map<String, Object>> listCases() {
@@ -61,10 +62,11 @@ public class StudentController {
     User me = currentUser.requireCurrentUser();
     StudentProfile studentProfile = studentProfiles.findByUserId(me.getId()).orElse(null);
     String studentProgram = normalize(studentProfile != null ? studentProfile.getProgram() : null);
-    String studentFaculty = normalize(studentProfile != null ? studentProfile.getFaculty() : null);
 
-    return users.findByRole(Role.LECTURER).stream()
-      .filter(lecturer -> isEligibleSupervisor(lecturer.getId(), studentProgram, studentFaculty))
+    // Read from staff_registry table — lecturers are available even before they login
+    return staffRegistry.findAll().stream()
+      .filter(s -> s.getRole() == Role.LECTURER)
+      .filter(s -> studentProgram.isBlank() || normalizeStudyProgram(s.getStudyProgram()).equals(normalizeStudyProgram(studentProgram)))
       .map(this::toSupervisorDto)
       .toList();
   }
@@ -83,12 +85,20 @@ public class StudentController {
     if (supervisor.getRole() != Role.LECTURER) {
       throw new ResponseStatusException(BAD_REQUEST, "Supervisor must be a lecturer.");
     }
-    LecturerProfile lecturerProfile = lecturerProfiles.findByUserId(supervisor.getId())
-      .orElseThrow(() -> new ResponseStatusException(BAD_REQUEST, "Supervisor not found."));
 
-    boolean sameProgram = normalize(lecturerProfile.getDepartment()).equals(studentProgram);
-    boolean sameFaculty = studentFaculty.isBlank() || normalize(lecturerProfile.getFaculty()).equals(studentFaculty);
-    if (!sameProgram || !sameFaculty) {
+    // Validate study program match via staff_registry or lecturer profile
+    StaffRegistry staffEntry = staffRegistry.findByEmailIgnoreCase(supervisor.getEmail()).orElse(null);
+    LecturerProfile lecturerProfile = lecturerProfiles.findByUserId(supervisor.getId()).orElse(null);
+
+    String supervisorProgram = "";
+    if (staffEntry != null && staffEntry.getStudyProgram() != null) {
+      supervisorProgram = normalize(staffEntry.getStudyProgram());
+    } else if (lecturerProfile != null && lecturerProfile.getDepartment() != null) {
+      supervisorProgram = normalize(lecturerProfile.getDepartment());
+    }
+
+    if (!studentProgram.isBlank() && !supervisorProgram.isBlank()
+        && !normalizeStudyProgram(supervisorProgram).equals(normalizeStudyProgram(studentProgram))) {
       throw new ResponseStatusException(BAD_REQUEST, "Supervisor must be from the same study program.");
     }
 
@@ -320,44 +330,40 @@ public class StudentController {
     );
   }
 
-  private SupervisorDto toSupervisorDto(User user) {
-    LecturerProfile profile = lecturerProfiles.findByUserId(user.getId()).orElse(null);
-    String name = profile != null && profile.getName() != null && !profile.getName().isBlank()
-      ? profile.getName()
-      : user.getEmail();
+  private SupervisorDto toSupervisorDto(StaffRegistry staff) {
+    String name = staff.getFullName() != null && !staff.getFullName().isBlank()
+      ? staff.getFullName()
+      : staff.getEmail();
     return new SupervisorDto(
-      user.getId(),
-      user.getEmail(),
+      staff.getId(),
+      staff.getEmail(),
       name,
-      profile != null ? profile.getFaculty() : null,
-      profile != null ? profile.getDepartment() : null
+      null,
+      staff.getStudyProgram()
     );
-  }
-
-  private boolean isEligibleSupervisor(Long lecturerUserId, String studentProgram, String studentFaculty) {
-    if (studentProgram.isBlank()) {
-      return false;
-    }
-
-    LecturerProfile profile = lecturerProfiles.findByUserId(lecturerUserId).orElse(null);
-    if (profile == null) {
-      return false;
-    }
-    if (!normalize(profile.getDepartment()).equals(studentProgram)) {
-      return false;
-    }
-    return studentFaculty.isBlank() || normalize(profile.getFaculty()).equals(studentFaculty);
   }
 
   private static String normalize(String value) {
     return value == null ? "" : value.trim().toLowerCase(Locale.ROOT);
   }
 
+  private static String normalizeStudyProgram(String value) {
+    String normalized = normalize(value);
+    // "information systems" == "information system"
+    if (normalized.endsWith("systems")) {
+      return normalized.substring(0, normalized.length() - 1);
+    }
+    return normalized;
+  }
+
+  /**
+   * Resolve the supervisor User. If the email exists in staff_registry but the
+   * user hasn't logged in yet, auto-provision a User account for them.
+   */
   private User resolveRequestedSupervisor(CreateRegistrationRequest req) {
     String supervisorEmail = normalize(req.getSupervisorEmail());
     if (!supervisorEmail.isBlank()) {
-      return users.findByEmail(supervisorEmail)
-        .orElseThrow(() -> new ResponseStatusException(BAD_REQUEST, "Supervisor not found."));
+      return findOrProvisionLecturer(supervisorEmail);
     }
 
     if (req.getSupervisorUserId() != null) {
@@ -377,8 +383,7 @@ public class StudentController {
       if (supervisorEmails.size() > 1) {
         throw new ResponseStatusException(BAD_REQUEST, "Only one supervisor is allowed.");
       }
-      return users.findByEmail(supervisorEmails.get(0))
-        .orElseThrow(() -> new ResponseStatusException(BAD_REQUEST, "Supervisor not found."));
+      return findOrProvisionLecturer(supervisorEmails.get(0));
     }
 
     if (req.getSupervisorUserIds() != null) {
@@ -397,6 +402,35 @@ public class StudentController {
     }
 
     throw new ResponseStatusException(BAD_REQUEST, "Supervisor is required.");
+  }
+
+  /**
+   * Find user by email, or auto-provision from staff_registry if not yet in users table.
+   */
+  private User findOrProvisionLecturer(String email) {
+    return users.findByEmail(email).orElseGet(() -> {
+      // Check staff_registry to verify this is a valid lecturer
+      StaffRegistry staff = staffRegistry.findByEmailIgnoreCase(email)
+        .orElseThrow(() -> new ResponseStatusException(BAD_REQUEST, "Supervisor not found in staff registry."));
+      if (staff.getRole() != Role.LECTURER) {
+        throw new ResponseStatusException(BAD_REQUEST, "Selected staff is not a lecturer.");
+      }
+      // Auto-create User so CaseSupervisor FK works
+      User newUser = users.save(User.builder()
+        .email(email)
+        .role(Role.LECTURER)
+        .passwordHash(passwordEncoder.encode(java.util.UUID.randomUUID().toString()))
+        .authProvider(AuthProvider.AAD)
+        .emailVerified(true)
+        .build());
+      // Also auto-create LecturerProfile
+      lecturerProfiles.save(LecturerProfile.builder()
+        .user(newUser)
+        .name(staff.getFullName())
+        .department(staff.getStudyProgram())
+        .build());
+      return newUser;
+    });
   }
 
   public record SupervisorDto(
