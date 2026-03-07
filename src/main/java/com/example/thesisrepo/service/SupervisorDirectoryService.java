@@ -1,6 +1,8 @@
 package com.example.thesisrepo.service;
 
-import com.example.thesisrepo.config.SupervisorDirectoryProperties;
+import com.example.thesisrepo.user.Role;
+import com.example.thesisrepo.user.StaffRegistry;
+import com.example.thesisrepo.user.StaffRegistryRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
@@ -10,50 +12,51 @@ import java.util.Locale;
 @Service
 public class SupervisorDirectoryService {
 
-  private final SupervisorDirectoryProperties properties;
+  private final StaffRegistryRepository staffRegistryRepository;
 
-  public SupervisorDirectoryService(SupervisorDirectoryProperties properties) {
-    this.properties = properties;
+  public SupervisorDirectoryService(StaffRegistryRepository staffRegistryRepository) {
+    this.staffRegistryRepository = staffRegistryRepository;
   }
 
-  public List<SupervisorDirectoryProperties.SupervisorEntry> listActiveSupervisors(
-    String faculty,
-    String studyProgram
-  ) {
-    return properties.getEntries().stream()
-      .filter(SupervisorDirectoryProperties.SupervisorEntry::isActive)
-      .filter(entry -> matchesFaculty(entry.getFaculty(), faculty))
-      .filter(entry -> matchesStudyProgram(entry.getStudyProgram(), studyProgram))
+  /**
+   * List all LECTURER entries from staff_registry, optionally filtered by faculty and/or studyProgram.
+   */
+  public List<StaffRegistry> listActiveSupervisors(String faculty, String studyProgram) {
+    return staffRegistryRepository.findAll().stream()
+      .filter(s -> s.getRole() == Role.LECTURER)
+      .filter(s -> matchesStudyProgram(s.getStudyProgram(), studyProgram))
       .toList();
   }
 
-  public SupervisorDirectoryProperties.SupervisorEntry findActiveByEmail(String email) {
+  /**
+   * Find a lecturer by email.
+   */
+  public StaffRegistry findActiveByEmail(String email) {
     String normalizedEmail = normalize(email);
-    return properties.getEntries().stream()
-      .filter(SupervisorDirectoryProperties.SupervisorEntry::isActive)
-      .filter(entry -> normalize(entry.getEmail()).equals(normalizedEmail))
-      .findFirst()
+    return staffRegistryRepository.findByEmailIgnoreCase(normalizedEmail)
+      .filter(s -> s.getRole() == Role.LECTURER)
       .orElse(null);
   }
 
-  public boolean isEligibleForStudent(
-    SupervisorDirectoryProperties.SupervisorEntry supervisor,
-    String studentFaculty,
-    String studentStudyProgram
-  ) {
+  /**
+   * Check if a supervisor matches the student's study program.
+   */
+  public boolean isEligibleForStudent(StaffRegistry supervisor, String studentFaculty, String studentStudyProgram) {
     if (supervisor == null) {
       return false;
     }
-    return matchesFaculty(supervisor.getFaculty(), studentFaculty)
-      && matchesStudyProgram(supervisor.getStudyProgram(), studentStudyProgram);
+    return matchesStudyProgram(supervisor.getStudyProgram(), studentStudyProgram);
   }
 
-  public String displayName(SupervisorDirectoryProperties.SupervisorEntry entry) {
+  /**
+   * Build display name: use fullName from DB, or derive from email.
+   */
+  public String displayName(StaffRegistry entry) {
     if (entry == null) {
       return "";
     }
-    if (StringUtils.hasText(entry.getName())) {
-      return entry.getName().trim();
+    if (StringUtils.hasText(entry.getFullName())) {
+      return entry.getFullName().trim();
     }
     String email = normalize(entry.getEmail());
     int separator = email.indexOf('@');
@@ -76,15 +79,6 @@ public class SupervisorDirectoryService {
     return builder.isEmpty() ? localPart : builder.toString();
   }
 
-  private static boolean matchesFaculty(String entryFaculty, String requestedFaculty) {
-    if (!StringUtils.hasText(requestedFaculty)) {
-      return true;
-    }
-    String entryNormalized = normalizeFaculty(entryFaculty);
-    String requestNormalized = normalizeFaculty(requestedFaculty);
-    return entryNormalized.equals(requestNormalized);
-  }
-
   private static boolean matchesStudyProgram(String entryProgram, String requestedProgram) {
     if (!StringUtils.hasText(requestedProgram)) {
       return true;
@@ -92,16 +86,6 @@ public class SupervisorDirectoryService {
     String entryNormalized = normalizeStudyProgram(entryProgram);
     String requestNormalized = normalizeStudyProgram(requestedProgram);
     return entryNormalized.equals(requestNormalized);
-  }
-
-  private static String normalizeFaculty(String value) {
-    String normalized = normalize(value);
-    int openIdx = normalized.lastIndexOf('(');
-    int closeIdx = normalized.lastIndexOf(')');
-    if (openIdx >= 0 && closeIdx > openIdx + 1) {
-      return normalized.substring(openIdx + 1, closeIdx).trim();
-    }
-    return normalized;
   }
 
   private static String normalizeStudyProgram(String value) {

@@ -1,7 +1,7 @@
 package com.example.thesisrepo.web;
 
-import com.example.thesisrepo.config.SupervisorDirectoryProperties;
 import com.example.thesisrepo.service.SupervisorDirectoryService;
+import com.example.thesisrepo.user.StaffRegistry;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -29,11 +29,11 @@ public class SupervisorDirectoryController {
       .toList();
   }
 
-  private SupervisorDto toDto(SupervisorDirectoryProperties.SupervisorEntry entry) {
+  private SupervisorDto toDto(StaffRegistry entry) {
     return new SupervisorDto(
       entry.getEmail(),
       supervisorDirectoryService.displayName(entry),
-      entry.getFaculty(),
+      entry.getDepartment(),
       entry.getStudyProgram()
     );
   }
